@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Movies.Models.Actor>
+
+@{
+    ViewBag.Title = "ShowAllActors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Actors</h2>
+
+<p>
+    @Html.ActionLink("Add New Actor", "AddNewActor", "", new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.full_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Summary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaceOfBirth)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.full_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Summary)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceOfBirth)
+            </td>
+            <td class="col-md-3">
+                @Html.ActionLink("Edit", "EditActor", new { id = item.Id }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Details", "ActorDetails", new { id = item.Id }, new { @class = "btn btn-default" }) |
+                @Html.ActionLink("Delete", "DeleteActor", new { id = item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Are you Sure to delete , data will be lost?');" })
+            </td>
+        </tr>
+    }
+
+</table>

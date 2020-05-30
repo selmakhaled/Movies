@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/StyleSheet.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 style="color:red">Admin Dashboard</h2>
+
+<hr>
+
+
+
+
+<div style="width:33%; background:#f4f6f9; display:inline-block; padding:5px;">
+    @Html.ActionLink("Upload Movie", "AddNewMovie", "Admin", new { id = "aAdmin", style = " display:inline-block;margin-left:33%;  margin-top:10%", @class = "btn btn-primary" })
+
+    <br><br><br>
+    <p style="color:black; font-size:15px;">You can upload new movie for Users from here just click upload movie then fill up the movie information </p>
+</div>
+
+
+
+
+
+
+
+<div style="width : 33% ;background:#f4f6f9; display:inline-block; padding:5px">
+    @Html.ActionLink("Show All Users", "showallusers", "Admin", new { id = "aAdmin", style = " display:inline-block;margin-left:33%;  margin-top:10%;", @class = "btn btn-primary" })
+
+    <br><br><br><p style="color:black; font-size:15px">You can See All Users of the website and you can update or delete . </p>
+
+</div>
+
+<div style="width:33%;background:#f4f6f9; display:inline-block; padding:5px">
+    @Html.ActionLink("Show All Movies", "showallmovies", "Admin", new { id = "aAdmin", style = " display:inline-block;margin-left:33%;  margin-top:10%;", @class = "btn btn-primary" })
+    <br><br><br><p style="color:black; font-size:15px">You can See All Movies in the whole website and you can delete or update . </p>
+
+</div>
+<br>
+<br>
+@{if ((int)Session["UserId"] == 5)
+    {
+        <div style="width:33%;background:#f4f6f9; display:inline-block; padding:5px">
+            @Html.ActionLink("Add New Admin", "AddNewAdmin", "Admin", new { id = "aAdmin", style = " display:inline-block;margin-left:33%;  margin-top:10%;", @class = "btn btn-primary" })
+            <br><br><br><p style="color:black; font-size:15px">You can Add A New Admin For Website from here  ,You should add athenticated people . </p>
+
+        </div>
+
+    }
+}
+
+<div style="width:33%;background:#f4f6f9; display:inline-block; padding:5px">
+    @Html.ActionLink("Show All Admins", "showalladmins", "Admin", new { id = "aAdmin", style = " display:inline-block;margin-left:33%;  margin-top:10%;", @class = "btn btn-primary" })
+    <br><br><br><p style="color:black; font-size:15px">You can See all admins of website.The main admin only who can delete other admins</p>
+
+</div>
+
+<div style="width:33%;background:#f4f6f9; display:inline-block; padding:5px">
+    @Html.ActionLink("New Movie Type", "addmovietype", "Admin", new { id = "aAdmin", style = " display:inline-block;margin-left:33%;  margin-top:10%;", @class = "btn btn-primary" })
+    <br><br><br><p style="color:black; font-size:15px">Add A New Movie Type then You can Choose it When uploading A New Movie.You can not update or delete it </p>
+
+</div>
+
+<br />
+<br />
+<div style="width:33%;background:#f4f6f9; display:inline-block; padding:5px">
+    @Html.ActionLink("Add Actor/Actress", "AddNewActor", "Admin", new { id = "aAdmin", style = " display:inline-block;margin-left:30%;  margin-top:10%;", @class = "btn btn-primary" })
+    <br><br><br><p style="color:black; font-size:15px">Add A New Actor/Actrss then You can add them it When uploading A New Movie </p>
+
+</div>
+<div style="width:33%;background:#f4f6f9; display:inline-block; padding:5px">
+    @Html.ActionLink("Show All Actors", "ShowAllActors", "Admin", new { id = "aAdmin", style = " display:inline-block;margin-left:33%;  margin-top:10%;", @class = "btn btn-primary" })
+    <br><br><br><p style="color:black; font-size:15px">See a list of All Actors/Actresses You can Delete ,view ,Edit any actor/actress  </p>
+
+</div>
+
+
+

@@ -1,0 +1,68 @@
+﻿@model Movies.ViewModels.ActorMoviesViewModel
+
+@{
+    ViewBag.Title = "ActorDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="">
+
+    <div style="margin:150px 0px 0px 400px;">
+        <img id="imgac" src="~/Actors/@Model.actor.imgPath" style=" max-height:170px;width:170px;border-radius:200px;display:inline-block" />
+        <div style="display:inline-block ;width:25%;max-width:40%;position:absolute; margin-left:10px;">
+            <br><br>
+            <h3 style="color:red; display:inline-block ;border-bottom:2px solid white">@Model.actor.full_name</h3>
+            <br>
+            @Model.actor.PlaceOfBirth
+            -
+            @Model.actor.DateOfBirth.Day/@Model.actor.DateOfBirth.Month/@Model.actor.DateOfBirth.Year
+            <br>
+            @Model.ActorMovies.Count() Movies
+
+        </div>
+    </div>
+
+
+
+    <br><br>
+    <h4>
+        @Model.actor.Summary
+    </h4>
+
+
+</div>
+<br>
+<br>
+<br>
+<hr />
+<h3 style="color:red; position:sticky"> @Model.actor.full_name's Movies:</h3>
+<br />
+<h2></h2>
+@{ int a = 0;
+    foreach (var item in Model.ActorMovies)
+    {
+        a = a + 1;
+        if (a == 6)
+        {
+            a = 0; break;
+        }
+
+        <div class="Mov" style="position:sticky;background-image:url(/Images/@item.ImagePath);    ">
+            <a href="~/Home/watch/@item.Id">
+                <div class="movieText">
+
+                    <h3 class="H3Mov">   @Html.DisplayFor(modelItem => item.Name)</h3>
+                    <h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.year_production.Year)</h4>
+                    <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Type_Name)</h4>
+                    <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Duration)</h4>
+                    <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Language)</h4>
+
+                </div>
+
+            </a>
+        </div>
+
+    }
+}
+<hr>
