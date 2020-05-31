@@ -1,0 +1,214 @@
+﻿@model Movies.ViewModels.MovieTypesViewModel
+
+@{
+    /**/
+
+    ViewBag.Title = "AddNewMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<link href="~/Content/tags.css" rel="stylesheet" />
+<script src="~/Scripts/autofill.js"></script>
+<script src="~/Scripts/tags.js"></script>
+<h2>Add New Movie</h2>
+
+@using (Html.BeginForm("AddNewMovie", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{@Html.AntiForgeryToken()
+
+<h4>Fill Up Movie Info.....</h4>
+<hr />
+<div class="form-horizontal" style="margin-left:24%;border-radius:60px;padding-left:13%;padding-top:5%;width:50%;border-style:solid; display:inline-block;">
+
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.Name)
+
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+
+    </div>
+
+    <div class="form-group">
+        <div>
+
+            @Html.LabelFor(model => model.type_id)
+            @Html.DropDownListFor(model => model.type_id, new SelectList(Model.TypesList, "Id", "type_name"), "Select Movie Type ......", new { @class = "form-control " })
+            @Html.ValidationMessageFor(model => model.type_id, "", new { @class = "text-danger" })
+
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.description)
+        @Html.TextBoxFor(model => model.description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+
+    </div>
+
+
+
+
+
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.Duration)
+        @Html.TextBoxFor(model => model.Duration, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
+
+    </div>
+
+
+
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.Country)
+        @Html.DropDownListFor(model => model.Country, new SelectList(Model.Countries), "Select Movie Country ......", new { @class = "form-control " })
+        @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.file2)
+        @*<input type="file" name="file" id="file" />*@
+        @Html.EditorFor(model => model.file2, new { htmlAttributes = new { type = "file" } })
+        @Html.ValidationMessageFor(model => model.file2, "", new { @class = "text-danger" })
+
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.file4)
+
+        @Html.EditorFor(model => model.file4, new { htmlAttributes = new { type = "file" } })
+
+    </div>
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.Language)
+        @Html.DropDownListFor(model => model.Language, new SelectList(Model.Langs), "Select Movie Language ......", new { @class = "form-control " })
+        @Html.ValidationMessageFor(model => model.Language, "", new { @class = "text-danger" })
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.file)
+        @*<input type="file" name="file" id="file" />*@
+        @Html.EditorFor(model => model.file, new { htmlAttributes = new { type = "file" } })
+        @Html.ValidationMessageFor(model => model.file, "", new { @class = "text-danger" })
+
+    </div>
+
+
+
+    @*
+
+        movie cover here
+            file3
+
+    *@
+
+
+
+
+
+
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.year_production)
+        @Html.TextBoxFor(model => model.year_production, new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(model => model.year_production, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.file3)
+        @*<input type="file" name="file" id="file" />*@
+        @Html.EditorFor(model => model.file3, new { htmlAttributes = new { type = "file" } })
+        @Html.ValidationMessageFor(model => model.file3, "", new { @class = "text-danger" })
+
+    </div>
+
+
+
+
+
+
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.Cast)
+        @Html.TextBoxFor(model => model.Cast, new { @class = "form-control", id = "taglist" })
+        @Html.ValidationMessageFor(model => model.Cast, "", new { @class = "text-danger" })
+    </div>
+
+
+
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-1 col-md-10" style="padding:5%;">
+            <input runat="server" type="submit" value="ADD" class="btn btn-primary" style="width:150px;height:55px;" />
+        </div>
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<p style="display:none"></p>
+
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/custom-validator")
+}
+
+<script>
+
+    var names= @Html.Raw(Json.Encode(Model.ActorsNames))  ;
+
+    $("#taglist").tags({
+
+        unique: true
+
+    }).autofill({
+
+        data: names
+
+    })
+
+
+
+
+
+
+
+</script>
+

@@ -25,6 +25,7 @@ namespace Movies.Models
         public DbSet<Admin> ADMINSS { set; get; }
         public DbSet<Actor> Actors { set; get; }
         public DbSet<Movie> MOVIESS { set; get; }
+        public DbSet<TypeOfMovie> TYPESS { set; get; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

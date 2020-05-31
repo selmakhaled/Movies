@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Movies.Models.Movie>
+
+@{
+    ViewBag.Title = "showallmovies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="color:red">All Movies</h2>
+<div style="display:inline-block;margin-left:85%">
+
+    Number of Movies: @Model.Count()
+</div>
+
+<p>
+    @Html.ActionLink("Uplaod New Movie", "AddNewMovie", "", new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Language)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Upload_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.publisher_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.year_production)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Type_Name)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Language)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Upload_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.publisher_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.year_production)
+            </td>
+
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Type_Name)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "editMovie", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Details", "detailsMovie", new { id = item.Id }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Delete", "deleteMovie", new { id = item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Are you Sure to delete , data will be lost?');" })
+            </td>
+        </tr>
+    }
+
+</table>

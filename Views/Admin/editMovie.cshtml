@@ -1,0 +1,446 @@
+﻿@model Movies.ViewModels.EditMovieViewModel
+
+@{
+    ViewBag.Title = "editMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/Content/tags.css" rel="stylesheet" />
+<script src="~/Scripts/autofill.js"></script>
+<script src="~/Scripts/tags.js"></script>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+
+@using (Html.BeginForm("editMovie", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+
+    <h2 style="color:red;">Edit Movie</h2> @Html.ActionLink("Back to List", "showallmovies", "Admin", new { @class = "btn btn-primary" })
+
+
+    <hr>
+
+
+
+
+    <div class="form-horizontal" style="margin-left:24%;border-radius:60px;padding-left:13%;padding-top:5%;width:50%;border-style:solid; display:inline-block;">
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.Name)
+
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+
+        </div>
+
+        <div class="form-group">
+            <div>
+
+                @Html.LabelFor(model => model.type_id)
+                @Html.DropDownListFor(model => model.type_id, new SelectList(Model.TypesList, "Id", "type_name"), "Select Movie Type ......", new { @class = "form-control " })
+                @Html.ValidationMessageFor(model => model.type_id, "", new { @class = "text-danger" })
+
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.description)
+            @Html.TextBoxFor(model => model.description, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+
+        </div>
+
+
+
+
+
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.Duration)
+            @Html.TextBoxFor(model => model.Duration, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.Country)
+            @Html.DropDownListFor(model => model.Country, new SelectList(Model.Countries), "Select Movie Country ......", new { @class = "form-control " })
+            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.file2)
+            @*<input type="file" name="file" id="file" />*@
+            @Html.EditorFor(model => model.file2, new { htmlAttributes = new { type = "file" } })
+            @Html.ValidationMessageFor(model => model.MovieDirectroy, "", new { @class = "text-danger" })
+            <a href="#" id="btnShowPopupp">Show Video</a>
+        </div>
+
+
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.Language)
+            @Html.DropDownListFor(model => model.Language, new SelectList(Model.Langs), "Select Movie Language ......", new { @class = "form-control " })
+            @Html.ValidationMessageFor(model => model.Language, "", new { @class = "text-danger" })
+
+        </div>
+
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CoverPath)
+            @*<input type="file" name="file" id="file" />*@
+            @Html.EditorFor(model => model.file3, new { htmlAttributes = new { type = "file" } })
+            <a href="#" id="btncover">Show Cover</a>
+        </div>
+
+
+
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Trailer)
+            @*<input type="file" name="file" id="file" />*@
+            @Html.EditorFor(model => model.file4, new { htmlAttributes = new { type = "file" } })
+            <a href="#" id="btntr">Show Trailer</a>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.file)
+            @*<input type="file" name="file" id="file" />*@
+            @Html.EditorFor(model => model.file, new { htmlAttributes = new { type = "file" } }) <a href="#" id="btnShowPopup">Show Image</a>
+            @Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group" style="visibility:hidden; height:0px;">
+            @Html.LabelFor(model => model.file)
+            @*<input type="file" name="file" id="file" />*@
+            @Html.EditorFor(model => model.ImagePath, new { htmlAttributes = new { type = "text" } })
+
+
+        </div>
+
+        <div class="form-group" style="visibility:hidden;height:0px;">
+            @Html.LabelFor(model => model.year_production)
+            @*<input type="file" name="file" id="file" />*@
+            @Html.EditorFor(model => model.year_production, new { htmlAttributes = new { type = "text" } })
+
+
+        </div>
+
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.year_production)
+            @Html.TextBoxFor(model => model.year_production, new { id = "date", @class = "form-control", type = "date" })
+
+            <h5 style="display:inline-block;">Current date : </h5>@Model.year_production.ToString()
+        </div>
+
+
+
+
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-1 col-md-10" style="padding:5%;">
+                <input runat="server" type="submit" value="Edit" class="btn btn-primary" style="width:150px;height:55px;" />
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="form-group" style="visibility:hidden;height:0px;">
+            @Html.LabelFor(model => model.file2)
+            @*<input type="file" name="file" id="file" />*@
+            @Html.EditorFor(model => model.MovieDirectroy, new { htmlAttributes = new { type = "text" } })
+
+
+        </div>
+
+        <div class="form-group" style="visibility:hidden;height:0px;">
+            @Html.LabelFor(model => model.Trailer)
+            @*<input type="file" name="file" id="file" />*@
+            @Html.EditorFor(model => model.Trailer, new { htmlAttributes = new { type = "text" } })
+
+
+        </div>
+
+        <div class="form-group" style="visibility:hidden;height:0px;">
+            @Html.LabelFor(model => model.CoverPath)
+            @*<input type="file" name="file" id="file" />*@
+            @Html.EditorFor(model => model.CoverPath, new { htmlAttributes = new { type = "text" } })
+
+
+        </div>
+        <div class="form-group" style="visibility:hidden;height:0px;">
+            @Html.LabelFor(model => model.Id)
+            @*<input type="file" name="file" id="file" />*@
+            @Html.EditorFor(model => model.Id, new { htmlAttributes = new { type = "text" } })
+
+
+        </div>
+        <div class="form-group" style="visibility:hidden;height:0px;">
+            @Html.LabelFor(model => model.pulisher_id)
+            @*<input type="file" name="file" id="file" />*@
+            @Html.EditorFor(model => model.pulisher_id, new { htmlAttributes = new { type = "text" } })
+
+
+        </div>
+
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.Cast)
+            @Html.TextBoxFor(model => model.Cast, new { @class = "form-control", id = "taglist" })
+            @Html.ValidationMessageFor(model => model.Cast, "", new { @class = "text-danger" })
+        </div>
+
+
+
+
+        <!-- Modal Popup -->
+        <div id="MyPopu" class="modal fade" role="dialog" style="max-height:70%;max-width:70% ;color:black;">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content" style="overflow:hidden">
+                    <div class="modal-header" style="overflow:hidden">
+                        <button type="button" class="close" data-dismiss="modal">
+                            &times;
+                        </button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body " style="overflow:hidden">
+
+                    </div>
+                    <img src="~/Images/Covers/@Model.CoverPath" style="width:80%;height:70%; padding:50px;" />
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- Modal Popup -->
+        <div id="MyPopup" class="modal fade" role="dialog" style="color:black;">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content" style="overflow:hidden">
+                    <div class="modal-header" style="overflow:hidden">
+                        <button type="button" class="close" data-dismiss="modal">
+                            &times;
+                        </button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body " style="overflow:hidden">
+
+                    </div>
+                    <img src="~/Images/@Model.ImagePath" style="width:80%;height:70%; padding:50px;" />
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap -->
+        <center>
+
+        </center>
+        <!-- Modal Popup -->
+        <div id="MyPopupp" class="modal fade" role="dialog" style="color:black;">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            &times;
+                        </button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body " style="overflow:hidden">
+
+                    </div>
+                    <video id="video" width="600" height="300" controls style="border-radius:15px;">
+                        <source src="~/Videos/@Model.MovieDirectroy" type="video/mp4">
+
+                        Your browser does not support this video quality
+                    </video>
+                    <div class="modal-footer">
+                        <button id="close" type="button" class="btn btn-danger" data-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tr" class="modal fade" role="dialog" style="color:black;">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            &times;
+                        </button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body " style="overflow:hidden">
+
+                    </div>
+                    <video id="video" width="600" height="300" controls style="border-radius:15px;">
+                        <source src="~/Trailers/@Model.Trailer" type="video/mp4">
+
+                        Your browser does not support this video quality
+                    </video>
+                    <div class="modal-footer">
+                        <button id="close" type="button" class="btn btn-danger" data-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+<!-- jQuery UI CSS File -->
+@Scripts.Render("~/bundles/jqueryui")
+<script>
+
+
+
+    var names = @Html.Raw(Json.Encode(Model.actorslist));
+
+
+
+
+
+            $("#taglist").tags({
+
+                unique: true
+
+            }).autofill({
+
+                data: names
+
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+    $(function () {
+        $("#btnShowPopup").click(function () {
+            var title = "";
+            var body = "";
+
+            $("#MyPopup .modal-title").html(title);
+            $("#MyPopup .modal-body").html(body);
+            $("#MyPopup").modal("show");
+        });
+
+        $("#btntr").click(function () {
+            var title = "";
+            var body = "";
+
+            $("#tr .modal-title").html(title);
+            $("#tr .modal-body").html(body);
+            $("#tr").modal("show");
+        });
+
+
+
+        $("#btncover").click(function () {
+            var title = "";
+            var body = "";
+
+            $("#MyPopu .modal-title").html(title);
+            $("#MyPopu .modal-body").html(body);
+            $("#MyPopu").modal("show");
+        });
+
+
+
+        $("#btnShowPopupp").click(function () {
+            var title = "";
+            var body = "";
+
+            $("#MyPopupp .modal-title").html(title);
+            $("#MyPopupp .modal-body").html(body);
+            $("#MyPopupp").modal("show");
+        });
+
+        $("#close").click(function () {
+            var vid = document.getElementById("video");
+            vid.pause();
+        });
+
+    });
+
+
+
+
+
+
+    $("#date").rules('add', {
+        required: false   // overwrite an existing rule
+    });
+
+
+
+
+</script>

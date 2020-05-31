@@ -1,0 +1,158 @@
+﻿@model Movies.Models.Movie
+
+@{
+    ViewBag.Title = "detailsMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<link href="~/Content/StyleSheet.css" rel="stylesheet" />
+<h2>Movie details</h2>
+
+
+<h4>@Model.Name</h4>
+<hr>
+
+
+<div class="dl-horizontal" style="word-wrap: break-word;opacity:0.9;color:black;padding:20px;display:block;margin-left:auto;margin-right:auto; width:50%;background:#f4f6f9 ;border-radius:15px;overflow:hidden;">
+
+    <img id="imgdet" style="margin-left:auto;margin-right:auto;display:block; height:350px;overflow:hidden; width:400px; border-radius:30px;" src="~/Images/@Model.ImagePath" alt="@Model.Name" />
+    <br />
+    <dl>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Language)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Language)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Upload_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Upload_Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.publisher_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publisher_Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.year_production)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.year_production)
+        </dd>
+
+
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieDirectroy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MovieDirectroy)
+        </dd>
+
+
+
+
+
+
+
+
+
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagePath)
+        </dd>
+
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoverPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoverPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trailer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trailer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+    </dl>
+
+
+
+
+</div>
+<br />
+<div style="display:block;margin-left:40%">
+    @Html.ActionLink("Watch", "watch", "Home", new { Id = Model.Id }, new { @class = "btn btn-danger" })|
+
+    @Html.ActionLink("Edit", "editMovie", new { Id = Model.Id }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Back to List", "showallmovies", "Admin", new { @class = "btn btn-primary" })
+
+</div>
+
+
+
+
+
+

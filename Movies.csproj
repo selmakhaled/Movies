@@ -178,6 +178,10 @@
     <Compile Include="Migrations\202005281826259_initialmigration.Designer.cs">
       <DependentUpon>202005281826259_initialmigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005282124577_Movie.cs" />
+    <Compile Include="Migrations\202005282124577_Movie.Designer.cs">
+      <DependentUpon>202005282124577_Movie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actor.cs" />
@@ -187,13 +191,18 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\TypeOfMovie.cs" />
     <Compile Include="Models\USER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Required.Designer.cs" />
     <Compile Include="Resource.Designer.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AdminsMoviesTypesViewModel.cs" />
     <Compile Include="ViewModels\AdminUserViewModel.cs" />
+    <Compile Include="ViewModels\EditMovieViewModel.cs" />
     <Compile Include="ViewModels\Login.cs" />
+    <Compile Include="ViewModels\MoviePublisherViewModel.cs" />
+    <Compile Include="ViewModels\MovieTypesViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -295,6 +304,10 @@
     <Content Include="Views\Admin\ShowAllActors.cshtml" />
     <Content Include="Views\Admin\ActorDetails.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\AddNewMovie.cshtml" />
+    <Content Include="Views\Admin\detailsMovie.cshtml" />
+    <Content Include="Views\Admin\editMovie.cshtml" />
+    <Content Include="Views\Admin\showallmovies.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -316,6 +329,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202005281826259_initialmigration.resx">
       <DependentUpon>202005281826259_initialmigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005282124577_Movie.resx">
+      <DependentUpon>202005282124577_Movie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Required.resx" />
     <EmbeddedResource Include="Resource.resx" />
