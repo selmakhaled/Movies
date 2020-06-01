@@ -185,7 +185,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actor.cs" />
-    <Compile Include="Models\ActorMovieViewModel.cs" />
+    <Compile Include="Models\ActorMoviesViewModel.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\EmailManger.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -197,6 +197,7 @@
     <Compile Include="Required.Designer.cs" />
     <Compile Include="Resource.Designer.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ActorMovieViewModel.cs" />
     <Compile Include="ViewModels\AdminsMoviesTypesViewModel.cs" />
     <Compile Include="ViewModels\AdminUserViewModel.cs" />
     <Compile Include="ViewModels\EditMovieViewModel.cs" />
@@ -308,6 +309,7 @@
     <Content Include="Views\Admin\detailsMovie.cshtml" />
     <Content Include="Views\Admin\editMovie.cshtml" />
     <Content Include="Views\Admin\showallmovies.cshtml" />
+    <Content Include="Views\Admin\addmovietype.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

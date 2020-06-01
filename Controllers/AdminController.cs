@@ -646,5 +646,30 @@ namespace Movies.Controllers
 
 
 
+        [HttpGet]
+        public ActionResult addmovietype()
+        {
+            if (Session["UserId"] == null) { RedirectToAction("Login", new { Controller = "Home" }); }
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult addmovietype(TypeOfMovie x)
+        {
+            if (ModelState.IsValid)
+            {
+                // save in database
+                db.TYPESS.Add(x);
+                db.SaveChanges();
+
+                return RedirectToAction("showallmovies", "Admin");
+            }
+            else return View();
+
+        }
+
+
+
+
     }
 }

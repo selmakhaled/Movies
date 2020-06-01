@@ -6,7 +6,7 @@ using Movies.Models;
 
 namespace Movies.ViewModels
 {
-    public class ActorMoviesViewModel
+    public class ActorMovieViewModel
     {
 
 

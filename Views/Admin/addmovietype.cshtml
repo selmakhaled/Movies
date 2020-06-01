@@ -1,0 +1,34 @@
+﻿@model Movies.Models.TypeOfMovie
+
+@{
+    ViewBag.Title = "addmovietype";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h3>New Movie Type</h3>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group" style="display:inline-block ;margin-left:35%;">
+            @Html.LabelFor(model => model.type_name)
+            @Html.EditorFor(model => model.type_name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.type_name, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group" style="margin-left:20px;display:inline-block">
+            <div class="">
+                <input type="submit" value="Add" id="aAdmin" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-primary" })
+</div>
