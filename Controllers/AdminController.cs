@@ -668,8 +668,146 @@ namespace Movies.Controllers
 
         }
 
+        public ActionResult showallusers()
+        {
+            if (Session["UserId"] == null) { RedirectToAction("Login", new { Controller = "Home" }); }
+            var users = db.USERSS.ToList();
+
+            // get all users and pass to view
+
+
+
+
+            return View(users);
+        }
+
+        public ActionResult deleteUser(int Id)
+        {
+
+            if (Session["Admin"] != null)
+            {
+                var c = db.USERSS.Find(Id);
+                db.USERSS.Remove(c);
+                db.SaveChanges();
+                return RedirectToAction("showallusers", "Admin");
+            }
+            else
+            {
+                Session["UserId"] = null;
+                Session["Admin"] = null;
+                Session["MovieId"] = null;
+                Session["UserName"] = null;
+
+                return RedirectToAction("Login", "Home");
+            }
+        }
+
+
+
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        public ActionResult editUser(int Id)
+        {
+            // search then pass to view
+
+
+            USER user = new USER();
+            user = db.USERSS.Find(Id);
+            user.ConfirmPassword = user.Password;
+
+
+
+            return View(user);
+        }
+
+        [HttpPost]
+
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult editUser(USER x, HttpPostedFileBase file3)
+        {
+
+
+
+            // save in database
+            if (file3 != null)
+            {
+                string path3 = Server.MapPath("~/Profile_Images/");
+
+
+                string fileName3 = Path.GetFileName(file3.FileName);
+                string fullpath3 = Path.Combine(path3, fileName3);
+                file3.SaveAs(fullpath3);
+                x.ImagePath = fileName3;
+
+
+            }
+            //ModelState.isvaild();
+
+
+            //  ModelState.Remove();
+            //if (ModelState.ContainsKey("{0}"))
+            //      ModelState["{0}"].Errors.Clear();
+
+            if (ModelState.IsValid)
+            {
+
+                db.Entry(x).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("showallusers", "Admin");
+            }
+            else
+            {
+                //List<ModelError> c = new List<ModelError>();
+                //foreach(ModelState modelState in ViewData.ModelState.Values) {
+                //    foreach (ModelError error in modelState.Errors)
+                //    {
+                //        c.Add(error);
+                //    }
+                //}
+
+
+                return View(x);
+            }
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+        public ActionResult detailsUser(int? Id)
+        {
+
+
+            var user = db.USERSS.Find(Id);
+
+            return View(user);
+        }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
     }
 }
+ 

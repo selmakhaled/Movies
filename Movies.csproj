@@ -310,6 +310,10 @@
     <Content Include="Views\Admin\editMovie.cshtml" />
     <Content Include="Views\Admin\showallmovies.cshtml" />
     <Content Include="Views\Admin\addmovietype.cshtml" />
+    <Content Include="Views\Admin\showallusers.cshtml" />
+    <Content Include="Views\Admin\detailsUser.cshtml" />
+    <Content Include="Views\Admin\editUser.cshtml" />
+    <Content Include="Views\Admin\showalladmins.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Movies.Models.USER>
+
+@{
+    ViewBag.Title = "showallusers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-ui.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<h2 style="color:red ;display:inline-block">All Users</h2>
+<div style="display:inline-block;margin-left:85%">
+
+    Number of Users: @Model.Count()
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+            <td>
+                <img src="~/Profile_Images/@item.ImagePath" style="border-radius:150px; width:50px;height:50px;" />
+
+
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "editUser", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Details", "detailsUser", new { id = item.Id }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Delete", "deleteUser", "Admin", new { id = item.Id }, new { @class = "btn btn-danger ", onclick = "return confirm('Are you Sure to delete All User data will be lost?');" })
+
+
+
+
+            </td>
+        </tr>
+    }
+
+
+</table>
+
+@*<div id="MyPopup" class="modal fade" role="dialog" style="border-radius:30px;padding:20px;margin-left:24%;margin-top:10%;color:black; background-color:black;opacity:2; width:50%;height:50%;">
+        <br>
+        <h3 style="color:white;margin-left:5px;">   Do You Want to delete this user ??</h3>
+        @{int x=0; }
+
+           <p id="x">@{x</p>
+
+        <div class="modal-footer">
+            //@Html.ActionLink("Delete", "deleteUser", new { id = x}, new { onclick = "return confirm('Are sure wants to delete?');" }, new { @class = "btn btn-danger" })
+
+
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+                Close
+            </button>
+            <br>
+        </div>
+        <h4 style="color:red" dir="ltr">-Warning:</h4> <h5 style="color:white">By clicking DELETE all user's data will be removed and will be lost</h5>
+
+    </div>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+    //$("#delet").click(function () {
+    //    idd = $("#delet").val(); //id in button value
+    //    document.getElementById("#x").innerHTML = idd;
+    //    $("#MyPopup").modal("show");
+
+    //});
+
+
+
+
+
+</script>

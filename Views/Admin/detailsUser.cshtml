@@ -1,0 +1,56 @@
+﻿@model Movies.Models.USER
+
+@{
+    ViewBag.Title = "detailsUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>detailsUser</h2>
+<h4>USER</h4>
+<div style="display:inline-block">
+
+    <img src=~/Profile_Images/@Model.ImagePath style="width:200px ;height:200px; border-radius:500px;" />
+</div>
+
+<div style="display:inline-block ">
+
+
+    <dl class="dl-horizontal">
+        <dt style="color:white" ;>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt style="color:white" ;>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt style="color:white" ;>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+
+        <dd>
+
+
+        </dd>
+
+    </dl>
+</div>
+<br>
+<br>
+<p>
+    @Html.ActionLink("Edit", "editUser", new { id = Model.Id }, new { @class = "btn btn-default" }) |
+    @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-primary" })
+</p>
