@@ -26,6 +26,9 @@ namespace Movies.Models
         public DbSet<Actor> Actors { set; get; }
         public DbSet<Movie> MOVIESS { set; get; }
         public DbSet<TypeOfMovie> TYPESS { set; get; }
+        public DbSet<favourite> Favourite { set; get; }
+        public DbSet<Follow> Follow { set; get; }
+        public DbSet<Like_Dislike> likes_Dislikes { set; get; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

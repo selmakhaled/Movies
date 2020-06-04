@@ -1,31 +1,117 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model Movies.ViewModels.MoviesList_movieseach
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/StyleSheet.css" rel="stylesheet" />
+
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{@Html.AntiForgeryToken()
+
+<br>
+<div class="form-horizontal" style="border-radius:10px;padding-left:6%;padding-top:2%;width:99%;border-style:solid; border-color:#f4f6f9;font-family: Bahnschrift;padding-bottom:2%;">
+
+    <div class="form-group" style="display:inline-block; width:200px;margin-right:40px;">
+
+        @Html.LabelFor(z => z.Name)
+        @Html.TextBoxFor(z => z.Name, new { @class = "form-control", placeholder = "Enter Movie Name ..." })
+    </div>
+
+    <div class="form-group" style="display:inline-block; width:200px;margin-right:40px;">
+
+        @Html.LabelFor(model => model.Language)
+        @Html.DropDownListFor(model => model.Language, new SelectList(Model.Langs), "Select Movie Language ......", new { @class = "form-control " })
+
+
+    </div>
+
+
+
+    <div class="form-group" style="display:inline-block; width:200px;margin-right:40px;">
+
+        @Html.LabelFor(model => model.type_id)
+        @Html.DropDownListFor(model => model.type_id, new SelectList(Model.Types, "Id", "type_name"), " Choose Movie Type ......", new { @class = "form-control " })
+
+
+    </div>
+
+
+    <div class="form-group" style="display:inline-block; width:200px;margin-right:40px;">
+        @{ List<int> years = new List<int>();
+
+            for (var i = 1900; i <= DateTime.Now.Year; i++)
+            {
+
+                years.Add(i);
+            }
+
+        }
+
+
+        @Html.LabelFor(model => model.year_production)
+        @Html.DropDownListFor(model => model.year_production, new SelectList(years), "Select Movie Year ......", new { @class = "form-control " })
+
+
+    </div>
+
+
+    <div style="display:inline-block; margin-left:3%">
+
+        <button type="submit" class="btn btn-danger" style="">
+
+            <i class="fas fa-search"></i> Search
+
+        </button>
+    </div>
+
+
+</div>
+
+
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
+<h3 style="color:red;">
+    All Movies
+</h3>
+
+<div class="form-horizontal" style="  max-height:1000px;overflow:scroll;border-radius:20px;padding-left:6%;padding-top:5%;width:99%;border-style:solid; border-color:#f4f6f9;font-family: Bahnschrift;">
+
+    @if (Model.movies.Count() == 0)
+    {<h3> Movies are not found. </h3>}
+
+    @{ int y = 0;
+        foreach (var item in Model.movies)
+        {
+            y = y + 1;
+            if (y == 6)
+            { <br> <br> y = 1;
+            }
+
+            <div class="Mov" style="background-size:cover; width:190px;hieght:300px;background-image:url(/Images/@item.ImagePath);    ">
+                <a href="~/Home/watch/@item.Id">
+                    <div class="movieText">
+
+                        <h3 class="H3Mov">   @Html.DisplayFor(modelItem => item.Name)</h3>
+                        <h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.year_production.Year)</h4>
+                        <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Type_Name)</h4>
+                        <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Duration)</h4>
+                        <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Language)</h4>
+
+                    </div>
+                    <div style="background-color:black;margin-top:95%;opacity:0.8;color:white"> @item.Name  <i class="far fa-eye fa-1x" style="color:white; margin-left:5px;">@item.Seen</i></div>
+                </a>
+
+            </div>
+
+
+
+
+        }
+    }
+
+
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>

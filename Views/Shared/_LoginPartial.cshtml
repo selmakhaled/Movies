@@ -1,22 +1,37 @@
 ﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-    @Html.AntiForgeryToken()
 
+
+@Styles.Render("~/Content/css")
+
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jqueryui")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+
+<link href="~/Content/StyleSheet.css" rel="stylesheet" />
+
+@if (Session["UserId"] == null)
+{
     <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        <li id="navele"> <a href="~/Home/Register" class="" style="color:azure">Register</a></li>
+        <li id="navele"> <a href="~/Home/Login" class="" style="color:azure">Log in</a></li>
     </ul>
-    }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+    if (Session["UserId"] != null && Session["Admin"] == null)
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li> <a href="~/User/myprofile">@Session["UserName"] <img src='~/Profile_Images/@Session["userimg"]' style="border-radius:100px; width:25px;height:25px;" /></a></li>
+            <li>@Html.ActionLink("Logout", "Logout", new { controller = "Home" }, new { @class = "btn btn-danger", style = "color:azure" })</li>
+        </ul>
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li id="navele">@Html.ActionLink("Admin Dashboard", "Index", "Admin")</li>
+            <li> <a href="~/Home/Logout" class="" id="navele" style="color:azure">Logout</a></li>
+        </ul>
+    }
 }

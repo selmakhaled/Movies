@@ -228,9 +228,115 @@ namespace Movies.Controllers
 
 
 
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            MoviesList_movieseach MLMS = new MoviesList_movieseach();
+
+            if (Session["UserId"] != null)
+            {
+
+
+                MLMS.movies = db.MOVIESS.ToList();
+                MLMS.movies.Reverse();
+                MLMS.Types = db.TYPESS.ToList();
+                return View(MLMS);
+            }
+            else return RedirectToAction("Login");
+
+        }
+
+
+        [HttpPost]
+        public ActionResult Index(MoviesList_movieseach MLMS)
+        {
+            var moviesFromDb = db.MOVIESS.ToList();
+            if (MLMS.Country == null && MLMS.Language == null && MLMS.Name == null && MLMS.type_id == null && MLMS.year_production == null)
+            {
+                MLMS.movies = moviesFromDb;
+
+                return View(MLMS);
+            }
+            else
+            {
+
+
+                List<Movie> Matched_Movies = new List<Movie>();
+
+
+                if (MLMS.Name != null)
+                {
+                    Matched_Movies = db.MOVIESS.Where(y => y.Name.Contains(MLMS.Name)).ToList();
+
+                }
+                else Matched_Movies = db.MOVIESS.ToList();
+
+
+                if (MLMS.type_id != null)
+                {
+                    Matched_Movies = Matched_Movies.Where(y => y.type_id == MLMS.type_id).ToList();
+
+
+                }
+
+                if (MLMS.Language != null)
+                {
+                    Matched_Movies = Matched_Movies.Where(y => y.Language == MLMS.Language).ToList();
+
+                }
+
+                if (MLMS.year_production != null)
+                {
+                    Matched_Movies = Matched_Movies.Where(y => y.year_production.Year == MLMS.year_production).ToList();
+
+
+                }
+
+                //if (movie_search.type_id != null)
+                //{
+                //    var movies = db.MOVIESS.Where(y => y.type_id == movie_search.type_id).ToList();
+                //    foreach (var movie in movies)
+                //        Matched_Movies.Add(movie);
+
+                //}
+
+
+
+
+                //foreach (var movie in Matched_Movies)
+                //{
+
+
+
+
+
+
+
+                //}
+
+
+
+
+                //List<Movie> matched = new List<Movie>();
+                //foreach (var match in Matched_Movies)
+                //{
+                //    if (MLMS.Name !=null && MLMS.year_production != null&& MLMS.type_id== null&&MLMS.Country==null&&MLMS.Language==null)
+                //    {
+                //        var movies = db.MOVIESS.Where(y => y.Name.Contains( MLMS.Name) && y.year_production.Year == MLMS.year_production).ToList();
+                //    }
+
+
+                //}
+                MLMS.movies = Matched_Movies;
+
+                MLMS.Types = db.TYPESS.ToList();
+                return View(MLMS);
+            }
+
+
+
+
+
         }
 
 

@@ -796,7 +796,13 @@ namespace Movies.Controllers
         }
 
 
+        public ActionResult showalladmins()
+        {
+            var admins = db.ADMINSS.ToList();
+            return View(admins);
 
+
+        }
 
 
 

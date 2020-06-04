@@ -1,0 +1,435 @@
+﻿@model Movies.ViewModels.UserProfileViewModel
+
+@{
+    ViewBag.Title = "myProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br>
+<br>
+<div>
+
+
+    <div>
+        <img src="~/Profile_Images/@Model.user.ImagePath" id="proimg" />
+    </div>
+    <h2 style="text-align:center;"> @Model.user.Name</h2>
+
+    <hr />
+
+    <a onclick="favourite()" id="favo">
+        <div class="divs" style="overflow:hidden;display:inline-block;width:33% ;color:white;border-radius:5px;">
+
+            <h2 style="text-align:center;">Favourite Movies</h2>
+            <h3 style="text-align:center;">@Model.Listfavouritesmovies.Count()</h3>
+
+
+        </div>
+    </a>
+
+    <a id="foll" onclick="Follow()">
+        <div class="divs" style="overflow:hidden;display:inline-block;width:33% ;color:white;border-radius:5px;">
+            <h2 style="text-align:center;">Following</h2>
+            <h3 style="text-align:center;">@Model.followinglist.Count()</h3>
+        </div>
+
+    </a>
+
+
+    <a id="liked" onclick="Liked()">
+        <div class="divs" style="overflow:hidden;display:inline-block;width:33% ;color:white;border-radius:5px;">
+            <h2 style="text-align:center;">Liked Movies</h2>
+            <h3 style="text-align:center;">@Model.likeList.Count()</h3>
+
+        </div>
+
+    </a>
+    <hr>
+
+
+
+    <div style="display:none" id="vvvv"></div>
+
+
+    <div style="display:none" id="vvv">
+        <h2 style="color:red;">Following List</h2>
+
+        @{
+            if (Model.publishersList.Count() == 0)
+            { <h3>There are no Following publishers</h3>
+            }
+        }
+
+
+        <table class="table" style="margin-left:20% ;width:600px;">
+
+            @{
+                if (Model.publishersList.Count() != 0)
+                {
+
+                    <tr>
+
+                        <th>
+                            @Html.DisplayName("Name")
+                        </th>
+
+
+
+                    </tr>
+                }
+            }
+
+
+            @foreach (var item in Model.publishersList)
+            {
+                <tr style="margin-left:20%">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    @*<td>
+                        <button type="button" value="@item.Id" id="watch" class="btn btn-default" style="margin-left:50%;"> Show Movies</button>
+
+                        <button type="submit"  value="@item.Id" class="btn btn-danger" style="margin-left:5px;"> Unfollow</button>
+
+                                           </td>*@
+                </tr>
+
+
+            }
+
+
+
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div style="display:none;" id="v">
+        <h2 style="color:red;">Liked Movies</h2>
+
+        @{
+            if (Model.likeList.Count() == 0)
+            { <h3>There are no  movies</h3>
+            }
+            int y = 0;
+            foreach (var item in Model.likeList)
+            {
+                y = y + 1;
+                if (y == 6)
+                { <br> <br> y = 0;
+                }
+
+                <div class="Mov" style="background-image:url(/Images/@item.ImagePath);    ">
+                    <a href="~/Home/watch/@item.Id">
+                        <div class="movieText">
+
+                            <h3 class="H3Mov">   @Html.DisplayFor(modelItem => item.Name)</h3>
+                            <h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.year_production.Year)</h4>
+                            <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Type_Name)</h4>
+                            <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Duration)</h4>
+                            <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Language)</h4>
+
+                        </div>
+
+                    </a>
+                </div>
+
+
+
+            }
+        }
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div style="display:none;" id="vv">
+        <h2 style="color:red;">Favourite Movies</h2>
+
+        @{
+            if (Model.Listfavouritesmovies.Count() == 0)
+            { <h3>There are no favourite movies</h3>
+            }
+            int w = 0;
+            foreach (var item in Model.Listfavouritesmovies)
+            {
+                w = w + 1;
+                if (w == 6)
+                { <br> <br> w = 0;
+                }
+
+                <div class="Mov" style="background-image:url(/Images/@item.ImagePath);    ">
+                    <a href="~/Home/watch/@item.Id">
+                        <div class="movieText">
+
+                            <h3 class="H3Mov">   @Html.DisplayFor(modelItem => item.Name)</h3>
+                            <h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.year_production.Year)</h4>
+                            <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Type_Name)</h4>
+                            <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Duration)</h4>
+                            <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Language)</h4>
+
+                        </div>
+
+                    </a>
+                </div>
+
+
+
+            }
+        }
+    </div>
+
+</div>
+
+
+
+<div id="pass" class="modal fade" role="dialog" style="overflow-y:scroll ;padding:15px;color:black; background-color:black;opacity:2;">
+
+    <div>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Close
+        </button>
+    </div>
+    <div style="display:block;margin-left:25%;background-color: rgba(0,0,0,0.5);width:45%;height:390px;border-radius:50px; ">
+
+
+
+
+
+        <div style="margin:80px;margin-left:120px;">
+            <br> <br> <br><br>
+            @Html.Label("Password")
+            @Html.TextBox("Password", "", new { @class = "form-control", id = "passtxt", placeholder = "Enter Your Password...", type = "email" })
+            <div id="jax" style="color:red;"></div>
+            <button class="btn-danger form-control " style="margin:60px; width:120px;" id="sub" type="button">
+                Submit
+            </button>
+            <p style="color:white">    -For Security purposes you must provide us with your current password in order to edit your account .</p>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+<div id="MyPopup" class="modal fade" role="dialog" style="overflow-y:scroll ;padding:15px;color:black; background-color:black;opacity:2;">
+
+    <div>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Close
+        </button>
+    </div>
+    <hr><br>
+
+
+    @{
+        if (Model.follwingPublisherMovies == null)
+        { <h3>There are no  movies</h3>
+        }
+        int q = 0;
+
+        foreach (var item in Model.follwingPublisherMovies.Where(p => p.pulisher_id == 5/*add id of publisher row here*/ ))
+        {
+            q = q + 1;
+            if (q == 7)
+            { <br> <br> q = 0;
+            }
+
+            <div class="Mov" style="background-image:url(/Images/@item.ImagePath);    ">
+                <a href="~/Home/watch/@item.Id">
+                    <div class="movieText">
+
+                        <h3 class="H3Mov">   @Html.DisplayFor(modelItem => item.Name)</h3>
+                        <h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.year_production.Year)</h4>
+                        <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Type_Name)</h4>
+                        <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Duration)</h4>
+                        <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Language)</h4>
+
+                    </div>
+
+                </a>
+            </div>
+
+
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="~/User/editAccount/@Model.user.Id" id="" class="btn-danger form-control" style="width:11.5%;">Edit My Account</a>
+
+
+
+
+
+
+
+<script>
+
+
+    ////$("#favo").click(function () {
+
+
+    ////    var divv = document.getElementById("vv").style.display;
+    ////    divv.style.display = "block";
+    ////})
+
+    //function dis()
+    //{
+    //    var divv = document.getElementById("vv").style.display;
+    //    if (divv != "none") {
+    //        divv = "none";
+
+    //    } else divv = "block";
+
+
+
+    //}
+
+
+
+    function favourite() {
+        var y = document.getElementById("vvv");//follow div
+        var x = document.getElementById("vv");//favouirte div
+        var z = document.getElementById("v");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+            z.style.display = "none";
+
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+
+    function Follow() {
+        var y = document.getElementById("vv");//favouirte div
+        var x = document.getElementById("vvv");
+        var z = document.getElementById("v");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+            z.style.display = "none";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+
+    function Liked() {
+        var y = document.getElementById("vv");//favouirte div
+        var x = document.getElementById("vvv");
+        var z = document.getElementById("v");
+        if (z.style.display === "none") {
+            z.style.display = "block";
+            y.style.display = "none";
+            x.style.display = "none";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+
+
+    $("#watch").click(function () {
+
+        $("#MyPopup").modal("show");
+    });
+
+
+
+
+            //$("#sub").click(function () {
+            //    entredPass = $("#passtxt").val();
+
+            //    $.ajax({
+            //        type: "POST",
+            //        url: "/User/passCheck",
+            //        data: { pass: entredPass },
+            //        success: function (data) {
+            //            if (data != 0) { window.location = "http://localhost:58717/User/editAccount"; }
+            //            else document.getElementById("jax").innerHTML = "Wrong Password .";
+
+
+            //        }
+            //    });
+
+
+            //    })
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+

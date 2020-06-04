@@ -171,6 +171,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,13 +183,20 @@
     <Compile Include="Migrations\202005282124577_Movie.Designer.cs">
       <DependentUpon>202005282124577_Movie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005290302530_UserProfileTables.cs" />
+    <Compile Include="Migrations\202005290302530_UserProfileTables.Designer.cs">
+      <DependentUpon>202005290302530_UserProfileTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actor.cs" />
     <Compile Include="Models\ActorMoviesViewModel.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\EmailManger.cs" />
+    <Compile Include="Models\favourite.cs" />
+    <Compile Include="Models\Follow.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Like_Dislike.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\TypeOfMovie.cs" />
@@ -200,10 +208,13 @@
     <Compile Include="ViewModels\ActorMovieViewModel.cs" />
     <Compile Include="ViewModels\AdminsMoviesTypesViewModel.cs" />
     <Compile Include="ViewModels\AdminUserViewModel.cs" />
+    <Compile Include="ViewModels\EditAccountViewModel.cs" />
     <Compile Include="ViewModels\EditMovieViewModel.cs" />
     <Compile Include="ViewModels\Login.cs" />
     <Compile Include="ViewModels\MoviePublisherViewModel.cs" />
+    <Compile Include="ViewModels\MoviesList_movieseach.cs" />
     <Compile Include="ViewModels\MovieTypesViewModel.cs" />
+    <Compile Include="ViewModels\UserProfileViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -314,6 +325,9 @@
     <Content Include="Views\Admin\detailsUser.cshtml" />
     <Content Include="Views\Admin\editUser.cshtml" />
     <Content Include="Views\Admin\showalladmins.cshtml" />
+    <Content Include="Views\User\editAccount.cshtml" />
+    <Content Include="Views\User\myProfile.cshtml" />
+    <Content Include="Views\User\profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -338,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005282124577_Movie.resx">
       <DependentUpon>202005282124577_Movie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005290302530_UserProfileTables.resx">
+      <DependentUpon>202005290302530_UserProfileTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Required.resx" />
     <EmbeddedResource Include="Resource.resx" />

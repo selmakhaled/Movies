@@ -3,13 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Movies Land Website</title>
     @Styles.Render("~/Content/css")
+
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -24,7 +27,40 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+                </ul>*@
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    @*<span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>*@
+                </button>
+                <link href="~/Content/StyleSheet.css" rel="stylesheet" />
+                <div class="navbar-brand xx" style="font-family:arial rounded mt bold ;font-size:26px;">
+                    <i class="far fa-caret-square-right" style="color:orange;"></i>
+
+                    @Html.ActionLink("Movie land", "Index", "Home", new { area = "" }, new { @class = "navlet", style = "color:azure; display:inline-block;" })
+
+                    @*@Html.ActionLink("L", "Index", "Home", new { area = "" }, new { @class = "navlet", style = "color:azure;display:inline-block;" })@Html.ActionLink("a", "Index", "Home", new { area = "" }, new { @class = "navlet", style = "color:azure;display:inline-block;" })@Html.ActionLink("n", "Index", "Home", new { area = "" }, new { @class = "navlet", style = "color:azure;display:inline-block;" })@Html.ActionLink("d", "Index", "Home", new { area = "" }, new { @class = "navlet", style = "color:azure;display:inline-block;" })*@
+
+                </div>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                @{
+                    if (Session["UserId"] != null)
+                    {
+                        <ul class="nav navbar-nav">
+                            <li id="navele"><a href="~/Home/Index" , style="display:inline-block;"><i style="display:inline-block" class="fas fa-home fa-1x"></i>Home</a></li>
+                            <li id="navele"><a href="~/Home/trend" , style="display:inline-block;"><i style="display:inline-block" class="fas fa-fire fa-1x"></i>Trending</a></li>
+                            <li id="navele"><a href="~/Home/about" , style="display:inline-block;"><i class="fas fa-info-circle fa-1x" style="display:inline-block"></i>About</a></li>
+                        </ul>
+                    }
+
+                }
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -33,7 +69,21 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p style="display:inline-block">&copy; @DateTime.Now.Year - Movies Land Website</p>
+
+            <div style="float:right; display:inline-block;">
+
+
+                <div style=" display:inline-block; "><a id="ico1" style=" padding:10px 12px 10px 12px;text-decoration:none;border:1px white solid" href="#"><i style="color:white" class="fab fa-facebook-f fa-1x"></i></a></div>
+
+
+                <div style=" display:inline-block;"><a id="ico2" style=" padding:10px;text-decoration:none;border:1px white solid" href="#"><i style="color:white" class="fab fa-instagram fa-1x"></i></a></div>
+                <div style=" display:inline-block;"><a id="ico3" style=" padding:10px;text-decoration:none;border:1px white solid" href="#"><i style="color:white" class="fab fa-twitter fa-1x"></i></a></div>
+
+                <div style=" display:inline-block;"><a id="ico4" style=" padding:10px;text-decoration:none;border:1px white solid" href="#"><i style="color:white" class="   fab fa-google-plus-g fa-1x"></i></a></div>
+
+            </div>
+
         </footer>
     </div>
 

@@ -1,0 +1,48 @@
+﻿@model Movies.Models.USER
+
+@{
+    ViewBag.Title = "profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>profile</h2>
+
+<div>
+    <h4>USER</h4>
+    <hr />
+
+    <img src="~/Images/@Model.ImagePath" style="width:auto" />
+
+
+
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit Account", "edituser", "Admin", new { id = Model.Id }, new { @class = "btn btn-danger" }) |
+    @Html.ActionLink("Delete Account", "deleteUser", "Admin", new { id = Model.Id }, new { @class = "btn btn-danger" })
+
+    @Html.ActionLink("Back to List", "Index")
+</p>
