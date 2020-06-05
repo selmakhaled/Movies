@@ -1,0 +1,659 @@
+﻿@model Movies.ViewModels.FavoriteLaterMovie
+
+@{
+    ViewBag.Title = "watch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/v4-shims.css">
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+@{
+    //number of like and dislike on current movie
+
+    int? NumberOfLikes = Model.likesdislist.Where(s => s.movieId == Model.movie.Id && s.isLike == true).Count();
+    int? NumberOfDislikes = Model.likesdislist.Where(q => q.movieId == Model.movie.Id && q.isLike == false).Count();
+
+
+    //number of  likes & dislike of current user to current user
+    int? numoflikes = Model.likesdislist.Where(r => r.userId == (int)Session["UserId"] && r.movieId == Model.movie.Id && r.isLike == true).Count();
+    int? numofdislikes = Model.likesdislist.Where(r => r.userId == (int)Session["UserId"] && r.movieId == Model.movie.Id && r.isLike == false).Count();
+
+    //favorite or not /get list of favorite and compare is this movie id == movie id in favorit
+
+
+    //number of seen  NEproprty in movie
+
+}
+
+
+<div class="dl-horizontal" style="color:white;padding:5%;display:block;width:100%;height:auto;overflow:hidden;opacity:1; background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(/Images/Covers/@Model.movie.CoverPath) no-repeat center; background-size:cover; position:absolute;    left: 0;">
+    <div style="display:inline-block;overflow:hidden; margin-left:190px;width:300px;height:350px;margin-top:50px; border-radius:2px;">
+        @*id="imgdett"*@
+        <img style="border:1.2px solid;margin-left:19%;max-height:285px ;max-width:395px;" src="~/Images/@Model.movie.ImagePath" alt="@Model.movie.Name" />
+    </div>
+    <div style="position:absolute;padding:0px;border-radius:10px;display:inline-block ;margin-left:4%; overflow:hidden; width:500px;  ">
+        <div style="word-wrap: break-word;padding:15px;margin:25px;display:inline-block;text-align:left; width:90%">
+            <div style="color:white;  border-bottom:2px solid white;font-size:25px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                @Html.DisplayFor(model => model.movie.Name)
+
+                @Html.DisplayFor(model => model.movie.year_production.Year)
+                <br>
+                @{ if (Session["Admin"] != null)
+                    {
+
+
+                        @Html.ActionLink("Edit", "editMovie", "Admin", new { Id = Model.movie.Id }, new { @class = "btn btn-primary", style = "margin-right:5px;" })
+                        @Html.ActionLink("Details", "detailsMovie", "Admin", new { Id = Model.movie.Id }, new { @class = "btn btn-warning", style = "margin-right:5px;" })
+                        @Html.ActionLink("Delete", "deleteMovie", "Admin", new { Id = Model.movie.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Are you Sure to delete , data will be lost?');" })
+
+                    } }
+
+            </div>
+
+
+
+            <h3 style="display:inline-block;">     @Html.DisplayFor(model => model.movie.Type_Name)</h3>
+            <br>
+
+            @Html.DisplayFor(model => model.movie.Country)
+            , @Html.DisplayFor(model => model.movie.Language)
+            ,   @Html.DisplayFor(model => model.movie.Duration)
+            ,Uploaded by :   @Html.DisplayFor(model => model.movie.publisher_Name)
+
+
+            @{
+
+                if (Session["Admin"] == null)
+                {
+                    if (Model.followFlag == 0)
+                    {
+                        <button type="button" class="btn-primary form-control" style="display:inline-block;width:100px;" id="follow">
+
+                            Follow
+
+                        </button>
+
+                    }
+                    else
+                    {
+                        <button type="button" class="btn form-control" style="color:red; display:inline-block;width:100px;" id="follow">
+
+                            Following
+
+                        </button>
+
+
+                    }
+
+
+
+                }
+
+            } @*end of C# code*@
+
+            <br>
+            <h4>   Story:</h4>
+
+            @Html.DisplayFor(model => model.movie.description)
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+    <div id="likeanddislike" style=" display:inline-block;margin-left:8%; ">
+
+        <input type="button" id="watchnow" value="Watch Now" style="" class="btn btn-danger" />
+
+        <input type="button" value="Watch Trailer" id="tr" style="margin-right:100px;" class="btn btn-default" />
+
+        <div style="display:inline-block ;">
+            <p style="display:none;" id="admin">@Session["Admin"]</p>
+            @{
+                if (1 == 1)
+                {
+                    if (numoflikes == 1)
+                    {
+                        <i class="fas fa-thumbs-up fa-2x btn" style=" color:blue;" type="button" id="Like"></i>
+                    }
+                    else
+                    { <i class="fas fa-thumbs-up fa-2x btn" style=" color:white;" type="button" id="Like"></i>}
+                }
+            }
+        </div>
+        @{
+
+
+            if (1 == 1)
+            {
+                <p id="numLikes" style="display:inline-block">@NumberOfLikes</p>
+            } }
+        <div style="display:inline-block;">
+
+            @{
+                if (1 == 1)
+                {
+                    if (numofdislikes == 1)
+                    {
+                        <i class="fas fa-thumbs-down fa-2x btn" style=" color:blue;" type="button" id="dislike"></i>
+                    }
+                    else
+                    { <i class="fas fa-thumbs-down fa-2x btn" style="color:white;" type="button" id="dislike"></i>}
+                }
+            }
+        </div>
+        @{
+
+
+            if (1 == 1)
+            {
+                <p id="numdislikes" style="display:inline-block">@NumberOfDislikes</p>
+            } }
+        @*//no number for favorite section*@
+
+
+
+
+
+
+
+        @{ if (Session["Admin"] != null)
+            { <div style="margin-left:9%">
+                    uploaded on         @Html.DisplayFor(model => model.movie.Upload_Date)
+                    <br>
+                    produced on     @Html.DisplayFor(model => model.movie.year_production)
+                </div>
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div style="display:inline-block">
+
+            @{
+                if (Session["Admin"] == null)
+                {
+                    if (Model.Favo == true)
+                    {
+
+                        <i class="fas fa-heart fa-2x btn" style=" color:red;" type="button" id="fav"></i>
+                    }
+                    else
+                    { <i class="fas fa-heart fa-2x btn" style=" color:white;" type="button" id="fav"></i>
+                    }
+                } }
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <br>
+    @{
+
+
+        if (@Model.listOfActors.Count() != 0)
+        {
+            <hr /> <h3 style="color:red; ">Cast</h3>
+            <br />
+
+
+            int j = 0;
+            foreach (var item in Model.listOfActors)
+            {
+                j = j + 1;
+                if (j == 6)
+                {
+
+                    j = 0; <br> <br><br>
+                }
+
+
+
+
+                <div style=" width:18%;display:inline-block; ">
+
+                    <a href="~/Admin/ActorDetails/@item.Id">
+                        <div id="imgdiv" style=" overflow:hidden;border:1px solid white;max-height:151px;width:151px;border-radius:15px;display:inline-block">
+                            <img id="imgac" src="~/Actors/@item.imgPath" style="max-height:150px;width:150px;border-radius:15px;display:inline-block" />
+
+                        </div>
+
+
+                        <h4 style="color:azure; margin-left:9px;">@item.full_name</h4>
+                    </a>
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <style>
+                    #imgdiv:hover #imgac {
+                        transform: scale(1.2);
+                        transition: ease-in-out 0.7s;
+                    }
+                </style>
+
+
+
+
+
+
+
+
+            }
+        }
+    }
+
+    <br><br>
+    @*
+    <hr>
+    <h3 style="color:red; ">Comments</h3>
+    @*Add comment
+
+    <div style="display:block; position:sticky; margin-left:200px; width:800px;">
+        <div class="form-group" style="padding-left:180px;">
+
+
+            <div style="margin-left:20%;">
+                @{
+
+
+                    if (Session["Admin"] == null)
+                    {
+                        @Html.TextBoxFor(t => t.Comment, new { placeholder = "Add a Comment ...", id = "txtarea", style = "display:inline-block; ", @class = "wide form-control" })
+                        @Html.ValidationMessageFor(c => c.Comment)
+
+                        <button id="comment" type="button"
+                                class="btn btn-primary  "
+                                style=" display:inline-block;">
+                            Comment   <i class="far fa-comment fa-1x" style="color:white;"></i>
+                        </button>
+
+                    }}
+            </div>
+
+
+
+            <hr />*@
+        
+
+
+            @*add partial view *@
+            @*@<div id="cmtpartial">
+                    @Html.Partial("_Comments", Model.x)
+                </div>*@
+
+
+
+            @*@<div style="word-wrap: break-word;overflow-y:auto ;max-height:400px;min-height:50px;width:inherit;">
+                    @{
+                        foreach (var cmt in Model.listOfComments)
+                        {
+                            if (cmt.movieId == Model.movie.Id)
+                            {
+                                var user = Model.listOfUsers.Where(t => t.Id == cmt.userId).Single();
+
+                                <div id="cmtadd">
+                                    <img src="~/Profile_Images/@user.ImagePath" style="display:inline-block;border-radius:20px;width:40px;height:40px; margin-right:10px;" />@user.Name  <span style="margin-left:70px;">Since @cmt.commentDate</span>
+                                    <h5> @cmt.comment </h5>
+
+                                </div>
+                                <hr>
+                            }//close if
+
+
+                        }
+
+
+                    }
+                </div>*@@*----------*@
+
+
+            </div>
+        
+
+
+
+
+
+
+
+
+        @*recommnded movies*@
+        <br>
+        <hr>
+        <h3 style="color:red; position:sticky">Related Movies :</h3> <br>
+        @{ int a = 0;
+            foreach (var item in Model.listOfMovies)
+            {
+                a = a + 1;
+                if (a == 6)
+                {
+                    a = 0; break;
+                }
+
+                <div class="Mov" style="position:sticky;background-image:url(/Images/@item.ImagePath);    ">
+                    <a href="~/Home/watch/@item.Id">
+                        <div class="movieText">
+
+                            <h3 class="H3Mov">   @Html.DisplayFor(modelItem => item.Name)</h3>
+                            <h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.year_production.Year)</h4>
+                            <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Type_Name)</h4>
+                            <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Duration)</h4>
+                            <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Language)</h4>
+
+                        </div>
+
+                    </a>
+                </div>
+
+            }
+        }
+        <hr />
+
+
+
+
+
+
+
+
+
+    
+
+
+    <div>
+
+
+        <p id="likeuser" style="display:none;">@numoflikes</p>    <p id="dislikeuser" style="display:none;">@numofdislikes</p>
+
+
+
+    </div>
+
+
+
+
+
+
+    <div id="MyPopup" class="modal fade" role="dialog" style="color:black; background-color:black;opacity:2;">
+
+        <video controls id="video" style="border-radius:15px;height:90%;width:95%;margin-left:25px;margin-top:10px;">
+            <source src="~/Videos/@Model.movie.MovieDirectroy" type="video/mp4">
+
+            Your browser does not support this video quality
+        </video>
+        <div class="modal-footer">
+            <button type="button" id="close" class="btn btn-danger" data-dismiss="modal">
+                Close
+            </button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div id="MyPopupp" class="modal fade" role="dialog" style="color:black; background-color:black;opacity:2;">
+
+        <video controls id="video" style="border-radius:15px;height:90%;width:95%;margin-left:25px;margin-top:10px;">
+            <source src="~/Trailers/@Model.movie.Trailer" type="video/mp4">
+
+            Your browser does not support this video quality
+        </video>
+        <div class="modal-footer">
+            <button type="button" id="close" class="btn btn-danger" data-dismiss="modal">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script src="~/Scripts/Watch.js" type="text/javascript"></script>
+    <script>
+
+
+        $("#watchmow").click(function () {
+
+
+            $("#MyPopup").modal('show');
+
+
+
+
+
+        });
+
+
+        $("#tr").click(function () {
+
+
+            $("#MyPopupp").modal('show');
+
+
+
+
+
+        });
+
+
+   var follow= @Model.followFlag;
+
+
+
+    $("#follow").click(function () {
+
+
+        if (follow==0) {
+
+            $.ajax({
+                type: "POST",
+                url: "/Home/follow",
+                data: { publisherid: @Model.movie.pulisher_id  },
+                success: function (reponse) { }
+
+
+            })
+
+
+            document.getElementById("follow").style.background = "red";
+            document.getElementById("follow").innerHTML = "Following";
+             follow= 1;
+        } else {
+
+            pubid=@Model.movie.pulisher_id ;
+            $.ajax({
+                type: "POST",
+                url: "/Home/follow",
+                data: { publisherid: pubid },
+                success: function (reponse) { }
+
+
+            })
+            follow= 0;
+            document.getElementById("follow").style.background = "blue";
+            document.getElementById("follow").style.color = "white";
+
+            document.getElementById("follow").innerHTML = "Follow";
+        }
+    });
+
+
+
+        $("#close").click(function () {
+            var vid = document.getElementById("video");
+            vid.pause();
+        });
+
+
+
+
+        $('#comment').click(function () {
+            txtcomment = document.getElementById("txtarea").value;
+
+
+            if (txtcomment != null) {
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/Comment",
+                    data: { comment: txtcomment },
+                    success: function (response) {
+
+                        document.getElementById("txtarea").value = "";
+
+                        $.ajax({
+                            type: "GET",
+                            url: "/Home/_Comments",
+                            success: function (data) {
+
+
+                                $('#cmtpartial').html(data);
+
+                            }
+                        })
+
+                    }
+                })
+
+
+
+
+
+
+
+
+
+
+            }
+
+
+        });
+
+      //    $("#cmtadd").append("<hr> <img src='/Profile_Images/@Session["userimg"]'   style='display:inline-block;border-radius:20px;width:40px;height:40px; margin-right:10px;' />@Session["UserName"] " + " <span style='margin-left:70px;'>Right Now</span>" + "<h5>" + txtcomment + "</h5>");
+
+
+
+
+
+
+
+
+           //var xmlhttp;
+                //xml = new XMLHttpRequest();
+
+                //xmlhttp.onreadystatechange = function () {
+
+                //    if (xmlhttp.readyState == 4 & xml.status == 200) {
+
+                //        //   var data = JSON.parse(xmlhttp.responseText);
+
+                //        document.getElementById("cmtpartial").innerHTML = JSON.parse(xmlhttp.responseText);
+                //    }
+
+
+
+                //};
+
+
+
+                //xmlhttp.open("GET","~/Home/_Comments", true);
+                //xml.send();
+
+
+
+
+
+
+
+
+
+
+
+        /////
+            //$.ajax({
+            //    type: "POST",
+            //    url: "/Home/Comment",
+            //    data: { comment: txtcomment },
+            //    success: function (response) { }
+
+
+            ////})
+
+
+
+
+    </script>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>

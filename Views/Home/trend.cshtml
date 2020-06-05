@@ -1,0 +1,76 @@
+﻿@model List<Movies.Models.Movie>
+<h2 style="color:red;">Trending</h2>
+
+<div class="form-horizontal" style="border-radius:20px;padding-left:6%;padding-top:5%;width:99%;border-style:solid; border-color:#f4f6f9;font-family: Bahnschrift;">
+
+    @if (Model.Count() == 0)
+    {<h3> Movies are not found. </h3>}
+
+    <h3></h3>
+
+    <div style="display:block;margin-left:20%;background-color: rgba(0,0,0,0.5);width:50%;height:390px;border-radius:50px; ">
+        <div class="Mov" style="display:inline-block; margin:50px 60px 0px 50px;background-image:url(/Images/@Model[0].ImagePath);    ">
+            <a href="~/Home/watch/@Model[0].Id">
+                <div class="movieText">
+
+                    <h3 class="H3Mov">   @Html.DisplayFor(modelItem => Model[0].Name)</h3>
+                    <h4 class="H3Mov">   @Html.DisplayFor(modelItem => Model[0].year_production.Year)</h4>
+                    <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => Model[0].Type_Name)</h4>
+                    <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => Model[0].Duration)</h4>
+                    <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => Model[0].Language)</h4>
+
+                </div>
+                <div style="background-color:black;margin-top:95%;opacity:0.8;color:white"> @Model[0].Name  <i class="far fa-eye fa-1x" style="color:white; margin-left:5px;">@Model[0].Seen</i></div>
+            </a>
+
+        </div>
+
+
+
+        <div style="display:inline-block">
+
+            <h2> @Model[0].Name</h2>
+            <hr>
+            #1st Movie on Treanding
+
+
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+    <br />
+    @{ int y = 0;
+        foreach (var item in Model)
+        {
+            y = y + 1;
+            if (y == 6)
+            { <br> <br> y = 0;
+            }
+
+            <div class="Mov" style=" background-image:url(/Images/@item.ImagePath);    ">
+                <a href="~/Home/watch/@item.Id">
+                    <div class="movieText">
+
+                        <h3 class="H3Mov">   @Html.DisplayFor(modelItem => item.Name)</h3>
+                        <h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.year_production.Year)</h4>
+                        <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Type_Name)</h4>
+                        <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Duration)</h4>
+                        <br><h4 class="H3Mov">   @Html.DisplayFor(modelItem => item.Language)</h4>
+
+                    </div>
+                    <div style="background-color:black;margin-top:95%;opacity:0.8;color:white"> @item.Name  <i class="far fa-eye fa-1x" style="color:white; margin-left:5px;">@item.Seen</i></div>
+                </a>
+
+            </div>
+
+        }
+    }
+    <hr />
+
+</div>

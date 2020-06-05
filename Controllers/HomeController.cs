@@ -338,6 +338,241 @@ namespace Movies.Controllers
 
 
         }
+        public void follow(int? publisherid)
+        {
+
+
+            int? userid = (int)Session["UserId"];
+            if (userid != null && publisherid != null)
+            {
+
+                Follow c = db.Follow.Where(y => y.PublisherId == publisherid && y.UserId == userid).FirstOrDefault();
+                if (c != null)
+                {
+
+                    db.Follow.Remove(c);
+                    db.SaveChanges();
+
+
+                    return;
+
+                }
+                else
+                {
+                    Follow fol = new Follow();
+                    fol.PublisherId = (int)publisherid;
+                    fol.UserId = (int)userid;
+                    db.Follow.Add(fol);
+                    db.SaveChanges();
+                    return;
+                }
+
+
+
+
+
+
+
+
+            }
+            return;
+
+
+        }
+        [HttpGet]
+        public ActionResult trend()
+        {
+
+
+            List<Movie> k = db.MOVIESS.OrderBy(y => y.Seen).ToList();
+            k.Reverse();
+
+            return View(k);
+        }
+
+
+
+        [HttpGet]
+        public ActionResult watch(int? Id)
+
+        {
+            if (Session["UserId"] == null) { return RedirectToAction("Login", "Home"); }
+            if (Id == null) { Id = (int)Session["MovieId"]; }
+
+            int y = (int)Session["UserId"];
+            Session["MovieId"] = Id;
+            var movie = db.MOVIESS.Find(Id);
+
+            movie.Seen = movie.Seen + 1;
+            db.Entry(movie).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+            FavoriteLaterMovie x = new FavoriteLaterMovie();
+
+            x.listOfMovies = db.MOVIESS.Where(q => q.type_id == movie.type_id).ToList();
+            var k = db.Follow.Where(t => t.PublisherId == movie.pulisher_id && t.UserId == y).FirstOrDefault();
+            if (k == null) { x.followFlag = 0; } else { x.followFlag = 1; }
+            x.movie = movie;
+
+
+
+
+
+
+
+           /* CommentViewModel Comments_Users = new CommentViewModel();
+
+            //Comments_Users.listOfComments = db.Comments.Where(p => p.movieId == Id).ToList();
+
+            //list of users who commented
+            List<USER> usercommented = new List<USER>();
+
+            foreach (var comment in Comments_Users.listOfComments)
+            {
+                var userr = db.USERSS.Where(t => t.Id == comment.userId).FirstOrDefault();
+                if (usercommented.Where(v => v.Id == userr.Id).FirstOrDefault() == null)
+                {
+                    usercommented.Add(userr);
+                }
+
+            }
+            
+
+            Comments_Users.listOfUsers = usercommented;
+
+
+            x.x = Comments_Users;
+            */
+            x.likesdislist = db.likes_Dislikes.ToList();
+
+
+            var user = db.USERSS.Find(y);
+            //     x.listOfComments = db.Comments.ToList();
+            x.listOfUsers = db.USERSS.ToList();
+            var u = (int)Session["MovieId"];
+            var m = (int)Session["UserId"];
+
+            int? e = db.Favourite.Where(r => r.movieId == u && r.userId == m).Count();
+            if (e != null && e != 0)
+            {
+
+                x.Favo = true;
+
+            }
+            else x.Favo = false;
+
+
+
+            ///actors
+            ///if
+
+            if (x.movie.Cast != null)
+            {
+                var listofActor = x.movie.Cast.Split(',');
+                List<Actor> actors = new List<Actor>();
+                foreach (String actr in listofActor)
+                {
+
+                    var actorDB = db.Actors.Where(r => r.full_name == actr).FirstOrDefault();
+                    if (actorDB != null)
+                    {
+                        actors.Add(actorDB);
+                    }
+
+                }
+
+                x.listOfActors = actors;
+
+            }
+            else { x.listOfActors = new List<Actor>(); }
+
+            return View(x);
+
+        }
+        [HttpPost]
+        public ActionResult watch(bool lik)
+        {
+            if (Session["UserId"] == null)
+            { return RedirectToAction("Login", "Home"); }
+            var UI = (int)Session["UserId"];
+            var MI = (int)Session["MovieId"];
+
+            if (lik == true)
+            {
+                //class
+                if (db.likes_Dislikes.Where(y => y.userId == UI && y.movieId == MI && y.isLike == true).Count() == 0)
+                {
+                    if (db.likes_Dislikes.Where(y => y.userId == UI && y.movieId == MI && y.isLike == false).Count() == 1)
+                    {
+                        var c = db.likes_Dislikes.Where(y => y.userId == UI && y.movieId == MI && y.isLike == false).FirstOrDefault();
+                        db.likes_Dislikes.Remove(c);
+                        db.SaveChanges();
+
+
+                    }
+
+                    //make sure that you did not like that before adding your like to database
+                    Like_Dislike obj = new Like_Dislike();
+                    obj.userId = UI;
+                    obj.movieId = MI;
+                    obj.isLike = true;
+                    db.likes_Dislikes.Add(obj);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    //delete your like from database 
+                    var c = db.likes_Dislikes.Where(y => y.userId == UI && y.movieId == MI && y.isLike == true).FirstOrDefault();
+                    db.likes_Dislikes.Remove(c);
+                    db.SaveChanges();
+
+                }
+            }
+            else if (lik == false)
+            {
+                if (db.likes_Dislikes.Where(y => y.userId == UI && y.movieId == MI && y.isLike == false).Count() == 0)
+                {
+                    if (db.likes_Dislikes.Where(y => y.userId == UI && y.movieId == MI && y.isLike == true).Count() == 1)
+                    {
+                        var c = db.likes_Dislikes.Where(y => y.userId == UI && y.movieId == MI && y.isLike == true).FirstOrDefault();
+                        db.likes_Dislikes.Remove(c);
+                        db.SaveChanges();
+
+
+                    }
+
+                    //make sure that you did not Dislike that before adding your dislike to database avoid duplication
+                    //class
+                    Like_Dislike obj = new Like_Dislike();
+                    obj.userId = UI;
+                    obj.movieId = MI;
+                    obj.isLike = false;
+                    db.likes_Dislikes.Add(obj);
+                    db.SaveChanges();
+
+
+                }
+                else
+                {
+                    //Delete your dislike
+
+                    var c = db.likes_Dislikes.Where(y => y.userId == UI && y.movieId == MI && y.isLike == false).FirstOrDefault();
+                    db.likes_Dislikes.Remove(c);
+                    db.SaveChanges();
+
+
+                }
+
+
+
+
+            }
+
+            return Json(1);
+
+
+        }
+
 
 
 
