@@ -1,0 +1,5 @@
+to run the project:
+
+1 - move file "Movies.sln" back of Movies folder 
+now you have file contain Moviles.sln and Movies folder(contain models , views , controllers , etc) 
+2- open Movies.sln using visual studio and run it .
