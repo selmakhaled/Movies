@@ -1,0 +1,224 @@
+C:\Users\HP\source\repos\Movies\Movies\bin\Movies.dll.config
+C:\Users\HP\source\repos\Movies\Movies\bin\Movies.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Movies.pdb
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\csc.exe
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\csc.exe.config
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\csc.rsp
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\csi.exe
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\csi.exe.config
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\csi.rsp
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.AppContext.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Console.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.IO.Compression.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Net.Http.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Net.Sockets.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.ValueTuple.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Xml.XPath.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\vbc.exe
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\vbc.exe.config
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\vbc.rsp
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\VBCSCompiler.exe
+C:\Users\HP\source\repos\Movies\Movies\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\HP\source\repos\Movies\Movies\bin\Antlr3.Runtime.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\EntityFramework.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\EntityFramework.SqlServer.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Security.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Newtonsoft.Json.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\Owin.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\System.Web.Helpers.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\System.Web.Mvc.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\System.Web.Optimization.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\System.Web.Razor.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\System.Web.WebPages.Deployment.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\System.Web.WebPages.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\System.Web.WebPages.Razor.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\WebGrease.dll
+C:\Users\HP\source\repos\Movies\Movies\bin\System.Web.Helpers.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\System.Web.Mvc.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\System.Web.Optimization.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\System.Web.Razor.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\System.Web.WebPages.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\System.Web.WebPages.Deployment.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\System.Web.WebPages.Razor.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\Newtonsoft.Json.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\Antlr3.Runtime.pdb
+C:\Users\HP\source\repos\Movies\Movies\bin\EntityFramework.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\EntityFramework.SqlServer.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Security.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\HP\source\repos\Movies\Movies\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\HP\source\repos\Movies\Movies\obj\Debug\Movies.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\Movies\Movies\obj\Debug\Movies.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\Movies\Movies\obj\Debug\Movies.csproj.CopyComplete
+C:\Users\HP\source\repos\Movies\Movies\obj\Debug\Movies.dll
+C:\Users\HP\source\repos\Movies\Movies\obj\Debug\Movies.pdb
+C:\Users\HP\source\repos\Movies\Movies\obj\Debug\Movies.Migrations.InitialMigration.resources
+C:\Users\HP\source\repos\Movies\Movies\obj\Debug\Movies.csproj.GenerateResource.cache
+C:\Users\HP\source\repos\Movies\Movies\obj\Debug\Movies.Required.resources
+C:\Users\HP\source\repos\Movies\Movies\obj\Debug\Movies.Resource.resources
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Movies.dll.config
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Movies.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Movies.pdb
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\csc.exe
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\csc.exe.config
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\csc.rsp
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\csi.exe
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\csi.exe.config
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\csi.rsp
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.AppContext.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Console.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.IO.Compression.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Net.Http.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Net.Sockets.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.ValueTuple.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Xml.XPath.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\vbc.exe
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\vbc.exe.config
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\vbc.rsp
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\VBCSCompiler.exe
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Antlr3.Runtime.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\EntityFramework.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\EntityFramework.SqlServer.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Security.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Newtonsoft.Json.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Owin.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\System.Web.Helpers.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\System.Web.Mvc.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\System.Web.Optimization.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\System.Web.Razor.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\System.Web.WebPages.Deployment.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\System.Web.WebPages.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\System.Web.WebPages.Razor.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\WebGrease.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\System.Web.Helpers.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\System.Web.Mvc.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\System.Web.Optimization.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\System.Web.Razor.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\System.Web.WebPages.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\System.Web.WebPages.Deployment.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\System.Web.WebPages.Razor.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Newtonsoft.Json.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Antlr3.Runtime.pdb
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\EntityFramework.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\EntityFramework.SqlServer.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Security.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\obj\Debug\Movies.csprojAssemblyReference.cache
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\obj\Debug\Movies.Migrations.InitialMigration.resources
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\obj\Debug\Movies.Required.resources
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\obj\Debug\Movies.Resource.resources
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\obj\Debug\Movies.csproj.GenerateResource.cache
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\obj\Debug\Movies.csproj.CoreCompileInputs.cache
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\obj\Debug\Movies.csproj.CopyComplete
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\obj\Debug\Movies.dll
+C:\Users\salma\Downloads\SW-2 Project\Movies\Movies\obj\Debug\Movies.pdb
