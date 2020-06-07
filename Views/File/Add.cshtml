@@ -1,0 +1,22 @@
+﻿
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm("Add", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <h3>Upload Image</h3>
+    <input type="file" name=" file" id="file" value="Browse">
+    <br>
+    <input type="submit" value="Upload">
+
+
+
+
+
+
+}

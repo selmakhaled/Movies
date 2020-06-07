@@ -1,0 +1,132 @@
+﻿@model Movies.Models.Admin
+@{
+    ViewBag.Title = "editAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/custom-validator")
+}
+
+
+@using (Html.BeginForm("editAdmin", "Admin"))
+
+{
+    @Html.AntiForgeryToken()
+    <h2 style="color:red;"> Edit Admin </h2>
+    <hr />
+    <div class="form-horizontal" style="margin-left:24%;border-radius:60px;padding-left:13%;padding-top:5%;width:50%;border-style:solid; display:inline-block;">
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.Name)
+
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+
+        </div>
+
+
+
+
+
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.Email)
+
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+
+        </div>
+
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.Password)
+
+            @Html.TextBoxFor(model => model.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-1 col-md-10" style="padding:5%;">
+                <input type="submit" value="Edit" class="btn btn-primary" style="width:150px;height:55px;" />
+            </div>
+        </div>
+
+    </div>
+
+
+
+}
+@*<style>
+        .speech {
+            border: 1px solid #DDD;
+            width: 300px;
+            padding: 0;
+            margin: 0
+        }
+
+            .speech input {
+                border: 0;
+                width: 240px;
+                display: inline-block;
+                height: 30px;
+            }
+
+            .speech img {
+                float: right;
+                width: 40px
+            }
+    </style>*@
+
+
+@*<form id="labnol" method="get" action="https://www.google.com/search">
+        <div class="speech">
+            <input type="text" name="q" id="transcript" placeholder="Speak" />
+            <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
+        </div>
+    </form>
+
+
+    <script>
+      function startDictation() {
+
+        if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+          var recognition = new webkitSpeechRecognition();
+
+          recognition.continuous = false;
+          recognition.interimResults = false;
+
+          recognition.lang = "en-US";
+          recognition.start();
+
+          recognition.onresult = function(e) {
+            document.getElementById('transcript').value
+                                     = e.results[0][0].transcript;
+            recognition.stop();
+            document.getElementById('labnol').submit();
+          };
+
+          recognition.onerror = function(e) {
+            recognition.stop();
+          }
+
+        }
+      }
+    </script>*@

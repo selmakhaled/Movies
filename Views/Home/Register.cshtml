@@ -1,0 +1,97 @@
+﻿@model Movies.ViewModels.UserViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="color:red;">Register</h2>
+<hr>
+
+@using (Html.BeginForm("Register", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{@Html.AntiForgeryToken()
+<div class="form-horizontal" style=" color:black;border-radius:30px;width:40%; background:#f4f6f9;margin-left:auto;margin-right:auto;">
+    <div style="padding:20%;">
+        <div class="form-group ">
+
+
+            @Html.LabelFor(y => y.Name)
+
+            @Html.TextBoxFor(y => y.Name, "", new { id = "na", @class = "form-control" })
+            @Html.ValidationMessageFor(y => y.Name, "", new { style = "color:red;" })
+        </div>
+        <div class="form-group ">
+
+
+            @Html.LabelFor(y => y.Email)
+
+            @Html.TextBoxFor(y => y.Email, "", new { id = "email", @class = "form-control", onchange = "UserCheck()", type = "email", maxlength = 70 })
+            @Html.ValidationMessageFor(y => y.Email, "", new { style = "color:red;" })
+
+            <div style="color:black;" id="di"></div>
+        </div>
+
+        <div class="form-group">
+
+            @Html.LabelFor(y => y.Password, "Password")
+
+            @Html.TextBoxFor(y => y.Password, "", new { @class = "form-control", minlength = 8, type = "password" })
+            @Html.ValidationMessageFor(y => y.Password, "", new { style = "color:red;" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = " control-label" })
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", minlength = 8 })
+            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger ", style = "color:red;" })
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.file3)
+            @Html.EditorFor(model => model.file3, new { htmlAttributes = new { type = "file" } })
+
+            @Html.ValidationMessageFor(model => model.file3, "", new { style = "color:red;" })
+
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <div class="col-lg-offset-2">
+                <input type="submit" value="Register" class="btn btn-primary" style="border-radius:10px;width:200px;height:45px;" />
+
+            </div>
+        </div>
+        <div style="color:black;" id="di"></div>
+    </div>
+</div>
+}
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/custom-validator")
+}
+<script>
+
+
+
+
+    function UserCheck() {
+
+
+        $.post("@Url.Action("emailcheck", "Home")",
+            {
+                Email: $("#email").val()
+            },
+            function (data) {
+                if (data == 1) {
+
+                    $("#di").html('<font color="Red">This Email is already Exist.Try Another One.</font>');
+                    $("#email").css("border-color", "Red");
+                }
+            });
+
+
+    }
+
+
+
+
+</script>

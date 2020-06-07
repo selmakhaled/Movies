@@ -310,10 +310,9 @@
     }
 
     <br><br>
-    @*
     <hr>
     <h3 style="color:red; ">Comments</h3>
-    @*Add comment
+    @*Add comment*@
 
     <div style="display:block; position:sticky; margin-left:200px; width:800px;">
         <div class="form-group" style="padding-left:180px;">
@@ -339,43 +338,42 @@
 
 
 
-            <hr />*@
-        
+            <hr />
 
 
             @*add partial view *@
             @*@<div id="cmtpartial">
-                    @Html.Partial("_Comments", Model.x)
-                </div>*@
+                @Html.Partial("_Comments", Model.x)
+            </div>*@
 
 
 
             @*@<div style="word-wrap: break-word;overflow-y:auto ;max-height:400px;min-height:50px;width:inherit;">
-                    @{
-                        foreach (var cmt in Model.listOfComments)
-                        {
-                            if (cmt.movieId == Model.movie.Id)
-                            {
-                                var user = Model.listOfUsers.Where(t => t.Id == cmt.userId).Single();
+            @{
+                foreach (var cmt in Model.listOfComments)
+                {
+                    if (cmt.movieId == Model.movie.Id)
+                    {
+                        var user = Model.listOfUsers.Where(t => t.Id == cmt.userId).Single();
 
-                                <div id="cmtadd">
-                                    <img src="~/Profile_Images/@user.ImagePath" style="display:inline-block;border-radius:20px;width:40px;height:40px; margin-right:10px;" />@user.Name  <span style="margin-left:70px;">Since @cmt.commentDate</span>
-                                    <h5> @cmt.comment </h5>
+                        <div id="cmtadd">
+                            <img src="~/Profile_Images/@user.ImagePath" style="display:inline-block;border-radius:20px;width:40px;height:40px; margin-right:10px;" />@user.Name  <span style="margin-left:70px;">Since @cmt.commentDate</span>
+                            <h5> @cmt.comment </h5>
 
-                                </div>
-                                <hr>
-                            }//close if
-
-
-                        }
+                        </div>
+                        <hr>
+                    }//close if
 
 
-                    }
-                </div>*@@*----------*@
+                }
 
 
-            </div>
-        
+            }
+        </div>*@@*----------*@
+
+
+        </div>
+        </div>
 
 
 
@@ -424,7 +422,7 @@
 
 
 
-    
+    </div>
 
 
     <div>

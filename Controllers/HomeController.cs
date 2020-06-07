@@ -92,6 +92,39 @@ namespace Movies.Controllers
 
 
 
+        //public ActionResult profile_img()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public ActionResult profile_img(HttpPostedFileBase file)
+        //{
+        //    if (file == null) { return Content("No File Uploaded"); }
+        //    else
+        //    {
+        //        string extension = Path.GetExtension(file.FileName).ToLower();
+        //        if (extension != ".png" && extension != ".jpg") { return View(); }
+        //        string path = Server.MapPath("~/Profile_Images/");
+        //        string fileName = Path.GetFileName(file.FileName);
+        //        string fullpath = Path.Combine(path, fileName);
+        //        file.SaveAs(fullpath);
+        //        int x;
+        //        x = (int)Session["UserId"];
+        //        var user = db.USERSS.Find(x);
+
+        //        user.ImagePath = fileName;
+        //        db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Login");
+
+        //    }
+        //}
+
+
+
+
+
+
 
 
 
@@ -338,6 +371,8 @@ namespace Movies.Controllers
 
 
         }
+
+
         public void follow(int? publisherid)
         {
 
@@ -420,9 +455,9 @@ namespace Movies.Controllers
 
 
 
-           /* CommentViewModel Comments_Users = new CommentViewModel();
+            CommentViewModel Comments_Users = new CommentViewModel();
 
-            //Comments_Users.listOfComments = db.Comments.Where(p => p.movieId == Id).ToList();
+            Comments_Users.listOfComments = db.Comments.Where(p => p.movieId == Id).ToList();
 
             //list of users who commented
             List<USER> usercommented = new List<USER>();
@@ -436,13 +471,13 @@ namespace Movies.Controllers
                 }
 
             }
-            
+
 
             Comments_Users.listOfUsers = usercommented;
 
 
             x.x = Comments_Users;
-            */
+
             x.likesdislist = db.likes_Dislikes.ToList();
 
 
@@ -573,6 +608,94 @@ namespace Movies.Controllers
 
         }
 
+
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// //////////////////////////////
+        /// partial view Action
+        [HttpGet]
+        public ActionResult _Comments()
+        {
+            int MI = (int)Session["MovieId"];
+
+            CommentViewModel Comments_Users = new CommentViewModel();
+
+            Comments_Users.listOfComments = db.Comments.Where(p => p.movieId == MI).ToList();
+
+            //list of users who commented
+            List<USER> usercommented = new List<USER>();
+
+            foreach (var comment in Comments_Users.listOfComments)
+            {
+                var userr = db.USERSS.Where(t => t.Id == comment.userId).FirstOrDefault();
+                if (usercommented.Where(v => v.Id == userr.Id).FirstOrDefault() == null)
+                {
+                    usercommented.Add(userr);
+                }
+
+            }
+
+
+            Comments_Users.listOfUsers = usercommented;
+
+
+
+
+            return PartialView(Comments_Users);
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        [HttpPost]
+        public ActionResult Comment(string comment)
+        {
+            int? UI = (int)Session["UserId"];
+            int? MI = (int)Session["MovieId"];
+            if (UI != null && MI != null)
+            {
+                if (comment != null || comment != "")
+                {
+                    Comments cmt = new Comments();
+                    cmt.comment = comment;
+                    cmt.commentDate = DateTime.Now;
+                    cmt.userId = (int)UI;
+                    cmt.movieId = (int)MI;
+                    db.Comments.Add(cmt);
+                    db.SaveChanges();
+                    return Content("1");
+                }
+                else return RedirectToAction("Login");
+
+            }
+            else return RedirectToAction("Login");
+
+        }
 
 
 

@@ -29,7 +29,30 @@ namespace Movies.Controllers
 
 
 
+        public ActionResult favourite(int fav)
+        {
+            int UI = (int)Session["UserId"];
+            int MI = (int)Session["MovieId"];
 
+            if (fav == 1)
+            {
+                favourite fa = new favourite();
+                fa.userId = UI; fa.movieId = MI;
+                db.Favourite.Add(fa);
+                db.SaveChanges();
+            }
+            else
+            {
+                var c = db.Favourite.Where(y => y.movieId == MI && y.userId == UI).FirstOrDefault();
+
+                db.Favourite.Remove(c);
+                db.SaveChanges();
+
+
+
+            }
+            return Content("hi fav");
+        }
 
 
 
@@ -50,65 +73,65 @@ namespace Movies.Controllers
             var s = (int)Session["UserId"];
 
             UPVM.user = db.USERSS.Find(s);
-               var listOfFavourites = db.Favourite.Where(y => y.userId == s).ToList();
-                List<Movie> lismov = new List<Movie>();
-                foreach (var fav in listOfFavourites)
+            var listOfFavourites = db.Favourite.Where(y => y.userId == s).ToList();
+            List<Movie> lismov = new List<Movie>();
+            foreach (var fav in listOfFavourites)
+            {
+                Movie mov = db.MOVIESS.Where(r => r.Id == fav.movieId).Single();
+                if (mov != null)
                 {
-                    Movie mov = db.MOVIESS.Where(r => r.Id == fav.movieId).Single();
-                    if (mov != null)
-                    {
-                        lismov.Add(mov);
-                    }
-
-                }
-                UPVM.Listfavouritesmovies = lismov;
-                List<Admin> admins = new List<Admin>();
-
-                UPVM.followinglist = db.Follow.Where(y => y.UserId == s).ToList();
-                foreach (var follo in UPVM.followinglist)
-                {
-                    var c = db.ADMINSS.Where(t => t.Id == follo.PublisherId).FirstOrDefault();
-                    admins.Add(c);
-
-
+                    lismov.Add(mov);
                 }
 
-                UPVM.publishersList = admins;
+            }
+            UPVM.Listfavouritesmovies = lismov;
+            List<Admin> admins = new List<Admin>();
+
+            UPVM.followinglist = db.Follow.Where(y => y.UserId == s).ToList();
+            foreach (var follo in UPVM.followinglist)
+            {
+                var c = db.ADMINSS.Where(t => t.Id == follo.PublisherId).FirstOrDefault();
+                admins.Add(c);
+
+
+            }
+
+            UPVM.publishersList = admins;
 
 
 
 
 
-                List<Like_Dislike> likes = new List<Like_Dislike>();
-                List<Movie> movies = new List<Movie>();
+            List<Like_Dislike> likes = new List<Like_Dislike>();
+            List<Movie> movies = new List<Movie>();
 
-                likes = db.likes_Dislikes.Where(y => y.userId == s && y.isLike == true).ToList();
-                foreach (var like in likes)
-                {
-                    var c = db.MOVIESS.Where(t => t.Id == like.movieId).FirstOrDefault();
-                    movies.Add(c);
-
-
-                }
-
-                UPVM.likeList = movies;
+            likes = db.likes_Dislikes.Where(y => y.userId == s && y.isLike == true).ToList();
+            foreach (var like in likes)
+            {
+                var c = db.MOVIESS.Where(t => t.Id == like.movieId).FirstOrDefault();
+                movies.Add(c);
 
 
-                List<Movie> moviesOfFollwing = new List<Movie>();
+            }
 
-                foreach (var fol in UPVM.followinglist)
-                {
-
-
-                    var k = db.MOVIESS.Where(z => z.pulisher_id == fol.PublisherId).ToList();
-
-                    moviesOfFollwing.AddRange(k);
-                }
+            UPVM.likeList = movies;
 
 
-                UPVM.follwingPublisherMovies = moviesOfFollwing;
+            List<Movie> moviesOfFollwing = new List<Movie>();
 
-        
+            foreach (var fol in UPVM.followinglist)
+            {
+
+
+                var k = db.MOVIESS.Where(z => z.pulisher_id == fol.PublisherId).ToList();
+
+                moviesOfFollwing.AddRange(k);
+            }
+
+
+            UPVM.follwingPublisherMovies = moviesOfFollwing;
+
+
 
 
 

@@ -8,7 +8,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{82D6B331-5A63-4F74-827D-C15021624DB2}</ProjectGuid>
+    <ProjectGuid>{81AB4FCF-0C49-4CF0-BBCD-1EFC5E6FFD2E}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -18,7 +18,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44359</IISExpressSSLPort>
+    <IISExpressSSLPort>44322</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -175,39 +175,33 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005281826259_initialmigration.cs" />
-    <Compile Include="Migrations\202005281826259_initialmigration.Designer.cs">
-      <DependentUpon>202005281826259_initialmigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005282124577_Movie.cs" />
-    <Compile Include="Migrations\202005282124577_Movie.Designer.cs">
-      <DependentUpon>202005282124577_Movie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005290302530_UserProfileTables.cs" />
-    <Compile Include="Migrations\202005290302530_UserProfileTables.Designer.cs">
-      <DependentUpon>202005290302530_UserProfileTables.cs</DependentUpon>
+    <Compile Include="Migrations\202005241725038_InitialMigration.cs" />
+    <Compile Include="Migrations\202005241725038_InitialMigration.Designer.cs">
+      <DependentUpon>202005241725038_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actor.cs" />
-    <Compile Include="Models\ActorMoviesViewModel.cs" />
     <Compile Include="Models\Admin.cs" />
-    <Compile Include="Models\EmailManger.cs" />
+    <Compile Include="Models\Comments.cs" />
+    <Compile Include="Models\EmailManager.cs" />
     <Compile Include="Models\favourite.cs" />
     <Compile Include="Models\Follow.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Like_Dislike.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\SearchMovie.cs" />
     <Compile Include="Models\TypeOfMovie.cs" />
     <Compile Include="Models\USER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Required.Designer.cs" />
     <Compile Include="Resource.Designer.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\ActorMovieViewModel.cs" />
+    <Compile Include="ViewModels\ActorMoviesViewModel.cs" />
     <Compile Include="ViewModels\AdminsMoviesTypesViewModel.cs" />
     <Compile Include="ViewModels\AdminUserViewModel.cs" />
+    <Compile Include="ViewModels\CommentViewModel.cs" />
     <Compile Include="ViewModels\EditAccountViewModel.cs" />
     <Compile Include="ViewModels\EditMovieViewModel.cs" />
     <Compile Include="ViewModels\FavoriteLaterMovie.cs" />
@@ -215,10 +209,18 @@
     <Compile Include="ViewModels\MoviePublisherViewModel.cs" />
     <Compile Include="ViewModels\MoviesList_movieseach.cs" />
     <Compile Include="ViewModels\MovieTypesViewModel.cs" />
+    <Compile Include="ViewModels\userHttpViewModel.cs" />
     <Compile Include="ViewModels\UserProfileViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Actors\Blue-Dot-Paint-Art-Pattern-Htc-Background-4k-HD-Wallpaper-.jpg" />
+    <Content Include="Actors\default.jpg" />
+    <Content Include="Actors\images %281%29.jpg" />
+    <Content Include="Actors\images.jpg" />
+    <Content Include="Actors\jason-statham-medium.jpg" />
+    <Content Include="Actors\johnny_depp_dior.jpg" />
+    <Content Include="Actors\MV5BZDcwMDMzYTEtMzQ2Yi00MTJkLThmN2MtN2ZjMTQ3YmZmMWViXkEyXkFqcGdeQXVyOTEzMjc0MTc%40._V1_UY268_CR3,0,182,268_AL_.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -231,14 +233,11 @@
     <Content Include="Images\220px-Death-tunnel-poster.jpg" />
     <Content Include="Images\Covers\8206f08fa6df5986f461f67844423cf8-700.jpg" />
     <Content Include="Images\Covers\death-tunnel.jpg" />
-    <Content Include="Images\Covers\Death_Tunnel_English_Italian_French_DVD.html" />
     <Content Include="Images\Covers\EH.jpg" />
     <Content Include="Images\Covers\MV5BNGY4ZmJlN2MtYzQ3ZC00NTAzLWJmYzQtZmZlY2M3MzJkOTg1XkEyXkFqcGdeQXVyNzU1NzE3NTg%40._V1_CR0,45,480,270_AL_UX477_CR0,0,477,268_AL_.jpg" />
     <Content Include="Images\Covers\MV5BYmY1NTY2NTQtOGM2ZS00ODc5LThiZjEtMDgwNWQxODZmODQ2XkEyXkFqcGdeQXVyODU5MDcyNzk%40._V1_.jpg" />
-    <Content Include="Images\Covers\thedeath.jpg" />
     <Content Include="Images\Covers\untibtled.png" />
     <Content Include="Images\Covers\windows_xp_bliss.jpg" />
-    <Content Include="Images\Death_Tunnel_English_Italian_French_DVD.html" />
     <Content Include="Images\DP_4407708_TC_1400x2100_DP_4407709_EscapeRoom_EST_2000x3000_US_15.jpg" />
     <Content Include="Images\imagess.jpg" />
     <Content Include="Images\img.jpg" />
@@ -247,7 +246,6 @@
     <Content Include="Images\MV5BMTY1NDA3ODM1OV5BMl5BanBnXkFtZTcwMDM5NzEzMQ%40%40._V1_.jpg" />
     <Content Include="Images\MV5BZDcwMDMzYTEtMzQ2Yi00MTJkLThmN2MtN2ZjMTQ3YmZmMWViXkEyXkFqcGdeQXVyOTEzMjc0MTc%40._V1_UY268_CR3,0,182,268_AL_.jpg" />
     <Content Include="Images\red_milkyway-2048x2048.jpg" />
-    <Content Include="Images\thedeath.jpg" />
     <Content Include="Images\untitled.png" />
     <Content Include="Profile_Images\2009g6207.jpg" />
     <Content Include="Profile_Images\4.jpg" />
@@ -256,7 +254,6 @@
     <Content Include="Profile_Images\cCR7.jpg" />
     <Content Include="Profile_Images\crop.jpg" />
     <Content Include="Profile_Images\images %281%29.jpg" />
-    <Content Include="Profile_Images\images.jpeg" />
     <Content Include="Profile_Images\johnny_depp_dior.jpg" />
     <Content Include="Profile_Images\red_milkyway-2048x2048.jpg" />
     <Content Include="Profile_Images\Screenshot_2019-08-20-15-01-49.png" />
@@ -266,6 +263,7 @@
     <Content Include="Profile_Images\Wooden-Vintage-Color-Tecxture-Background-Wallpaper.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -311,26 +309,31 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Admin\AddNewActor.cshtml" />
-    <Content Include="Views\Admin\EditActor.cshtml" />
-    <Content Include="Views\Admin\ShowAllActors.cshtml" />
-    <Content Include="Views\Admin\ActorDetails.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\AddNewMovie.cshtml" />
-    <Content Include="Views\Admin\detailsMovie.cshtml" />
-    <Content Include="Views\Admin\editMovie.cshtml" />
-    <Content Include="Views\Admin\showallmovies.cshtml" />
-    <Content Include="Views\Admin\addmovietype.cshtml" />
-    <Content Include="Views\Admin\showallusers.cshtml" />
-    <Content Include="Views\Admin\detailsUser.cshtml" />
-    <Content Include="Views\Admin\editUser.cshtml" />
+    <Content Include="Views\Admin\addnewadmin.cshtml" />
     <Content Include="Views\Admin\showalladmins.cshtml" />
-    <Content Include="Views\User\editAccount.cshtml" />
-    <Content Include="Views\User\myProfile.cshtml" />
-    <Content Include="Views\User\profile.cshtml" />
-    <Content Include="Views\Home\watch.cshtml" />
+    <Content Include="Views\Admin\addmovietype.cshtml" />
+    <Content Include="Views\Admin\editAdmin.cshtml" />
+    <Content Include="Views\Admin\AddNewActor.cshtml" />
+    <Content Include="Views\Admin\ShowAllActors.cshtml" />
+    <Content Include="Views\Admin\EditActor.cshtml" />
+    <Content Include="Views\Admin\AddNewMovie.cshtml" />
+    <Content Include="Views\Admin\showallusers.cshtml" />
+    <Content Include="Views\Admin\ActorDetails.cshtml" />
+    <Content Include="Views\Admin\showallmovies.cshtml" />
+    <Content Include="Views\Admin\editMovie.cshtml" />
+    <Content Include="Views\Admin\detailsMovie.cshtml" />
+    <Content Include="Views\Admin\editUser.cshtml" />
+    <Content Include="Views\Admin\detailsUser.cshtml" />
+    <Content Include="Views\File\Add.cshtml" />
+    <Content Include="Views\Home\forgotpassword.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\trend.cshtml" />
+    <Content Include="Views\Home\watch.cshtml" />
+    <Content Include="Views\User\profile.cshtml" />
+    <Content Include="Views\User\myProfile.cshtml" />
+    <Content Include="Views\User\editAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -350,14 +353,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005281826259_initialmigration.resx">
-      <DependentUpon>202005281826259_initialmigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005282124577_Movie.resx">
-      <DependentUpon>202005282124577_Movie.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005290302530_UserProfileTables.resx">
-      <DependentUpon>202005290302530_UserProfileTables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005241725038_InitialMigration.resx">
+      <DependentUpon>202005241725038_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Required.resx" />
     <EmbeddedResource Include="Resource.resx" />
@@ -378,9 +375,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>57729</DevelopmentServerPort>
+          <DevelopmentServerPort>50968</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44359/</IISUrl>
+          <IISUrl>https://localhost:44322/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

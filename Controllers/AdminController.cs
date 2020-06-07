@@ -1,4 +1,5 @@
-﻿using Movies.Models;
+﻿//using ImageResizer;
+using Movies.Models;
 using Movies.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace Movies.Controllers
     public class AdminController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
+
         // GET: Admin
         public ActionResult Index()
         {
@@ -29,14 +31,133 @@ namespace Movies.Controllers
         }
 
 
-        public ActionResult ShowAllActors()
+
+        public ActionResult mymovies()
+        {
+            int x;
+            x = (int)Session["UserId"];
+
+            var Mymovieslist = db.MOVIESS.Where(p => p.pulisher_id == x).ToList();
+            return View("showallmovies", "Admin", Mymovieslist);
+
+        }
+
+        //
+
+        [HttpGet]
+        public ActionResult addnewadmin()
         {
             if (Session["UserId"] == null) { RedirectToAction("Login", new { Controller = "Home" }); }
+            return View();
+        }
+        [HttpPost]
+        public ActionResult addnewadmin(Admin admin) //مش شفالة//
+        {
+            if (ModelState.IsValid)
+            {
+                db.ADMINSS.Add(admin);
+                db.SaveChanges();
+                return RedirectToAction("showalladmins", "Admin");
+            }
+            else return View();
+        }
 
-            return View(db.Actors.ToList());
+
+        public ActionResult showalladmins()
+        {
+            var admins = db.ADMINSS.ToList();
+            return View(admins);
 
 
         }
+
+
+
+
+
+        public ActionResult deleteAdmin(int Id)
+        {
+            if (Session["UserId"] == null) { RedirectToAction("Login", new { Controller = "Home" }); }
+            var c = db.ADMINSS.Find(Id);
+            db.ADMINSS.Remove(c);
+            db.SaveChanges();
+
+            return RedirectToAction("showalladmins", "Admin");
+
+        }
+
+
+        [HttpGet]
+        public ActionResult addmovietype()
+        {
+            if (Session["UserId"] == null) { RedirectToAction("Login", new { Controller = "Home" }); }
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult addmovietype(TypeOfMovie x)
+        {
+            if (ModelState.IsValid)
+            {
+                // save in database
+                db.TYPESS.Add(x);
+                db.SaveChanges();
+
+                return RedirectToAction("showalladmins", "Admin");
+            }
+            else return View();
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        public ActionResult editAdmin(int Id)
+        {
+            // search then pass to view
+            if (Session["UserId"] == null) { RedirectToAction("Login", new { Controller = "Home" }); }
+            return View(db.ADMINSS.Find(Id));
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult editAdmin(Admin x)
+        {
+            // save in database
+
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(x).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+
+                return RedirectToAction("showalladmins", "Admin");
+
+            }
+            else return View(x);
+        }
+        //
+
+
+
 
         [HttpGet]
         public ActionResult AddNewActor()
@@ -85,8 +206,25 @@ namespace Movies.Controllers
             }
 
 
+        }
+
+
+
+
+
+
+        public ActionResult ShowAllActors()
+        {
+            if (Session["UserId"] == null) { RedirectToAction("Login", new { Controller = "Home" }); }
+
+            return View(db.Actors.ToList());
+
 
         }
+
+
+
+
         [HttpGet]
         public ActionResult EditActor(int Id)
         {
@@ -164,43 +302,22 @@ namespace Movies.Controllers
 
         }
 
-        [HttpGet]
-        public ActionResult ActorDetails(int Id)
-        {
-            if (Session["UserId"] == null) { RedirectToAction("Login", new { Controller = "Home" }); }
-
-            Actor actor = db.Actors.Find(Id);
-
-
-            if (actor != null)
-            {
-                ActorMoviesViewModel AMVM = new ActorMoviesViewModel();
-
-                AMVM.actor = actor;
-
-                List<Movie> MoviesList = db.MOVIESS.Where(y => y.Cast.Contains(actor.full_name.ToLower())).ToList();
-
-                AMVM.ActorMovies = MoviesList;
-
-                return View(AMVM);
-
-            }
-            else return RedirectToAction("Index", "Home");
 
 
 
 
-        }
 
-        public ActionResult mymovies()
-        {
-            int x;
-            x = (int)Session["UserId"];
 
-            var Mymovieslist = db.MOVIESS.Where(p => p.pulisher_id == x).ToList();
-            return View("showallmovies", "Admin", Mymovieslist);
 
-        }
+
+
+
+
+
+
+
+
+
         [AllowAnonymous]
         [HttpGet]
         public ActionResult AddNewMovie()
@@ -410,6 +527,61 @@ namespace Movies.Controllers
 
 
         //
+
+
+        public ActionResult showallusers()
+        {
+            if (Session["UserId"] == null) { RedirectToAction("Login", new { Controller = "Home" }); }
+            var users = db.USERSS.ToList();
+
+            // get all users and pass to view
+
+
+
+
+            return View(users);
+        }
+
+
+
+
+
+        [HttpGet]
+        public ActionResult ActorDetails(int Id)
+        {
+            if (Session["UserId"] == null) { RedirectToAction("Login", new { Controller = "Home" }); }
+
+            Actor actor = db.Actors.Find(Id);
+
+
+            if (actor != null)
+            {
+                ActorMoviesViewModel AMVM = new ActorMoviesViewModel();
+
+                AMVM.actor = actor;
+
+                List<Movie> MoviesList = db.MOVIESS.Where(y => y.Cast.Contains(actor.full_name.ToLower())).ToList();
+
+                AMVM.ActorMovies = MoviesList;
+
+                return View(AMVM);
+
+            }
+            else return RedirectToAction("Index", "Home");
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
         public ActionResult showallmovies()
         {
 
@@ -646,40 +818,16 @@ namespace Movies.Controllers
 
 
 
-        [HttpGet]
-        public ActionResult addmovietype()
-        {
-            if (Session["UserId"] == null) { RedirectToAction("Login", new { Controller = "Home" }); }
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult addmovietype(TypeOfMovie x)
-        {
-            if (ModelState.IsValid)
-            {
-                // save in database
-                db.TYPESS.Add(x);
-                db.SaveChanges();
-
-                return RedirectToAction("showallmovies", "Admin");
-            }
-            else return View();
-
-        }
-
-        public ActionResult showallusers()
-        {
-            if (Session["UserId"] == null) { RedirectToAction("Login", new { Controller = "Home" }); }
-            var users = db.USERSS.ToList();
-
-            // get all users and pass to view
+        // /////////////////////////////////////////////////////////
+        /// ////////////////////////////////////////////////////////////
+        /// //////////////////////////USER/////////////////////////////
+        /// ////////////////////////////////////////////////////////////
+        /// ////////////////////////////////////////////////////////////
 
 
 
 
-            return View(users);
-        }
+
 
         public ActionResult deleteUser(int Id)
         {
@@ -796,13 +944,7 @@ namespace Movies.Controllers
         }
 
 
-        public ActionResult showalladmins()
-        {
-            var admins = db.ADMINSS.ToList();
-            return View(admins);
 
-
-        }
 
 
 
@@ -816,4 +958,3 @@ namespace Movies.Controllers
 
     }
 }
- 

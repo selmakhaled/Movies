@@ -21,14 +21,14 @@ namespace Movies.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<USER> USERSS { set; get; }
-
-        public DbSet<Admin> ADMINSS { set; get; }
-        public DbSet<Actor> Actors { set; get; }
         public DbSet<Movie> MOVIESS { set; get; }
         public DbSet<TypeOfMovie> TYPESS { set; get; }
+        public DbSet<Admin> ADMINSS { set; get; }
+        public DbSet<Like_Dislike> likes_Dislikes { set; get; }
+        public DbSet<Comments> Comments { set; get; }
         public DbSet<favourite> Favourite { set; get; }
         public DbSet<Follow> Follow { set; get; }
-        public DbSet<Like_Dislike> likes_Dislikes { set; get; }
+        public DbSet<Actor> Actors { set; get; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

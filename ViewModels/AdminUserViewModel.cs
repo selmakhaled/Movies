@@ -11,5 +11,6 @@ namespace Movies.ViewModels
         public Admin admin { set; get; }
 
         public USER user { set; get; }
+
     }
 }
