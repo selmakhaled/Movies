@@ -1,5 +1,7 @@
-to run the project:
+to run the project you have to do this:
 
-1 - move file "Movies.sln" back of Movies folder 
-now you have file contain Moviles.sln and Movies folder(contain models , views , controllers , etc) 
-2- open Movies.sln using visual studio and run it .
+1- download zipped Repositoriey and extract it and open it .
+2- you will find empty folder called "Movies" inside the Repositoriey .
+3- cut all files in Repositoriey except "Movies.sln" and paste them inside "Movies" folder 
+ (now you have file contain Movies.sln and Movies folder(contain models , views , controllers , etc)) .
+4- open "Movies.sln" using visual studio and run it .
